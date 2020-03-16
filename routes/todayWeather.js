@@ -1,24 +1,26 @@
-//express to make rest API
+//express --> to make rest API
 var express = require('express');
 var router = express.Router();
 
-/*********** export router to make callable from server.js **************/
+/*********** export router to make it callable from server.js **************/
 module.exports = router;
 
 
-//get mapping
-//endpoint configuration
-// example: http://localhost:3000/weather/today/torrebruna/ch
+// get mapping
+// endpoint configuration
+// example: http://localhost:3000/weather/today/city/torrebruna/ch
 router.get('/city/:city/:prov', function (request, response) {
 
+    //normalize params (cetemps need to read city with fist letter capitalized and province to upper case)
     let param1 = request.params.city;
-    let cty = param1.charAt(0).toUpperCase() + param1.substring(1); //normalize (cetemps need to read city with fist letter upper case)
-
+    let cty = param1.charAt(0).toUpperCase() + param1.substring(1);
     let param2 = request.params.prov;
     let prv = param2.toUpperCase();
 
+    // url of cetemps
     const URL = `http://meteorema.aquila.infn.it/cgi-bin/meteo/comuni/cetemps.html/response?site=${cty}&Invia=Invia&psite=${prv}&.cgifields=site`;
 
+    //nightmare declaration (web scraper)
     const Nightmare = require('nightmare');
     const nightmare = Nightmare({show: false}); //if show:true i can see the operation of the bot
 
@@ -28,21 +30,20 @@ router.get('/city/:city/:prov', function (request, response) {
         .wait('tr') //what have to wait to start execution
         .evaluate(function () { //execution --> I take the data I need through the HTML tags and classes
 
+            //mapping of weather condition with the gifs in the cetemps website
             const status = new Map([['clear.gif', 'Sereno'], ['sunny.gif', 'Soleggiato'], ['cover.gif', 'Cielo Coperto'], ['ncover.gif', 'Cielo Coperto'], ['cloud.gif', 'Nuvoloso'], ['rain.gif', 'Pioggia'], ['snow.gif', 'Neve']]);
 
+            var res = {}; //json result
+            var daily = []; //array with every hours of day
 
-
-            var res = {};
-            var daily = [];
-
-            //città
+            //city
             var city = document.querySelector('tr > td[align="center"][bgcolor="#0a51a1"][colspan="6"] > font[color="#FFFFFF"] > div[align="left"]'); //city name
-            //controlla se la città è valida
+            //check if the city is valid
             if (city != null) {
                 var strPlit = city.innerText.split(" ");
-                res.cityName = strPlit[0]; //nome
-                res.cityProvince = strPlit[1]; //provincia
-                res.cityHeight = strPlit[2] + 'm'; //altezza(m)
+                res.cityName = strPlit[0]; //name
+                res.cityProvince = strPlit[1]; //prov
+                res.cityHeight = strPlit[2] + 'm'; //height(m)
                 res.code = '200';
             } else {
                 throw 'city is not valid';
@@ -51,29 +52,30 @@ router.get('/city/:city/:prov', function (request, response) {
             var currentDate = new Date();
             var currentDay = currentDate.getDate();
 
-            //ogni riga
+            //every row
             document.querySelectorAll('tr[bgcolor="#0a51a1"]').forEach(function (result) {
                 var hours = {};
                 var weather = {};
 
-                //ogni giorno della riga
+                //every day of row
                 var dd = result.children[0].innerText;
 
                 var splitted = dd.split(" ");
-                var dayNumIndex = splitted[4]; //giorno numerico
-                var hourIndex = splitted[1]; //ora
-                if (dayNumIndex.charAt(0) == '0') {
+                var dayNumIndex = splitted[4]; //numeric day
+                var hourIndex = splitted[1]; //hour
+                if (dayNumIndex.charAt(0) == '0') { //normalizing numeric day
                     dayNumIndex = dayNumIndex.substring(1);
                 }
 
-                //controlla giorno corrente
+                //check for current day
                 if ((dayNumIndex == currentDay)) {
+                    //building json
                     hours.hour = `${hourIndex}:00`;
                     weather.temperature = result.children[1].innerText;
                     weather.pressure = result.children[2].innerText;
                     weather.humidity = result.children[3].innerText;
                     weather.wind = result.children[4].querySelector('b').innerText;
-
+                    //convert gif of cetemps in string status
                     let img = result.children[5].querySelector('img').src;
                     let imgSplit = img.split('icons/');
                     weather.status = status.get(imgSplit[1]);
@@ -93,7 +95,6 @@ router.get('/city/:city/:prov', function (request, response) {
         .then(function (res) { //post execution
             console.log(res);
             response.send(res);
-
         })
         .catch(error => { //error handler
             var err = {};

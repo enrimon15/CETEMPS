@@ -11,7 +11,7 @@ module.exports = router;
 
 //get mapping
 //endpoint configuration
-// example: http://localhost:3000/weather/current/torrebruna/ch
+// example: http://localhost:3000/weather/current/city/torrebruna/ch
 router.get('/city/:city/:prov', function (request, response) {
 
     let param1 = request.params.city;

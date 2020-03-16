@@ -16,6 +16,15 @@ app.use('/weather/today', todayWeather);
 var nextFiveWeather = require('./routes/nextFiveDaysWeather');
 app.use('/weather/fivedays', nextFiveWeather);
 
+//creating the route for city coords file
+var cityCoords = require('./routes/cityCoords');
+app.use('/coords', cityCoords);
+
+
+
+//creating the route for mock api
+var mock = require('./Mock/apiMock');
+app.use('/mock', mock);
 
 //server configuration
 var server = app.listen(3000, function () {

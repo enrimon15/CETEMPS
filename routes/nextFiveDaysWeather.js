@@ -1,24 +1,26 @@
-//express to make rest API
+//express --> to make rest API
 var express = require('express');
 var router = express.Router();
 
-/*********** export router to make callable from server.js **************/
+/*********** export router to make it callable from server.js **************/
 module.exports = router;
 
 
-//get mapping
-//endpoint configuration
-// example: http://localhost:3000/weather/fivedays/torrebruna/ch
+// get mapping
+// endpoint configuration
+// example: http://localhost:3000/weather/fivedays/city/torrebruna/ch
 router.get('/city/:city/:prov', function (request, response) {
 
+    //normalize params (cetemps need to read city with fist letter capitalized and province to upper case)
     let param1 = request.params.city;
-    let cty = param1.charAt(0).toUpperCase() + param1.substring(1); //normalize (cetemps need to read city with fist letter upper case)
-
+    let cty = param1.charAt(0).toUpperCase() + param1.substring(1);
     let param2 = request.params.prov;
     let prv = param2.toUpperCase();
 
+    // url of cetemps
     const URL = `http://meteorema.aquila.infn.it/cgi-bin/meteo/comuni/cetemps.html/response?site=${cty}&Invia=Invia&psite=${prv}&.cgifields=site`;
 
+    //nightmare declaration (web scraper)
     const Nightmare = require('nightmare');
     const nightmare = Nightmare({show: false}); //if show:true i can see the operation of the bot
 
@@ -36,9 +38,9 @@ router.get('/city/:city/:prov', function (request, response) {
             //controlla se la città è valida
             if (city != null) {
                 var strPlit = city.innerText.split(" ");
-                res.cityName = strPlit[0]; //nome
-                res.cityProvince = strPlit[1]; //provincia
-                res.cityHeight = strPlit[2] + 'm'; //altezza(m)
+                res.cityName = strPlit[0]; //name
+                res.cityProvince = strPlit[1]; //prov
+                res.cityHeight = strPlit[2] + 'm'; //height(m)
                 res.code = '200';
             } else {
                 throw 'city is not valid';
