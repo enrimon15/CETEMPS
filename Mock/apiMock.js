@@ -16,7 +16,6 @@ router.get('/weather/today/city/:city/:prov', function (request, response) {
         "cityHeight": "845m",
         "cityName": "Torrebruna",
         "cityProvince": "(CH)",
-        "code": "200",
         "hours": [
             {
                 "hour": "02:00",
@@ -241,8 +240,10 @@ router.get('/weather/today/city/:city/:prov', function (request, response) {
         ]
     };
 
-    response.send(json);
-
+    response.statusCode = 200;
+    setTimeout(function() {
+        response.send(json);
+    }, 1000);
 
 });
 
@@ -255,7 +256,6 @@ router.get('/weather/fivedays/city/:city/:prov', function (request, response) {
         "cityHeight": "845m",
         "cityName": "Torrebruna",
         "cityProvince": "(CH)",
-        "code": "200",
         "days": [
             {
                 "day": "Lunedì 16",
@@ -310,7 +310,10 @@ router.get('/weather/fivedays/city/:city/:prov', function (request, response) {
         ]
     };
 
-    response.send(json);
+    response.statusCode = 200;
+    setTimeout(function() {
+        response.send(json);
+    }, 1000);
 
 
 });
@@ -324,6 +327,7 @@ router.get('/coords/city/:city/:prov', function (request, response) {
         "lat": 41.87
     };
 
+    response.statusCode = 200;
     response.send(json);
 
 
