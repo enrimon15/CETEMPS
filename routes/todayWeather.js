@@ -17,8 +17,12 @@ router.get('/city/:city/:prov', function (request, response) {
     let param2 = request.params.prov;
     let prv = param2.toUpperCase();
 
+
     // url of cetemps
-    const URL = `http://meteorema.aquila.infn.it/cgi-bin/meteo/comuni/cetemps.html/response?site=${cty}&Invia=Invia&psite=${prv}&.cgifields=site`;
+    let URL = "";
+    prv !== 'NULL' //if province is not available
+        ? URL = `http://meteorema.aquila.infn.it/cgi-bin/meteo/comuni/cetemps.html/response?site=${cty}&Invia=Invia&psite=${prv}&.cgifields=site`
+        : URL = `http://meteorema.aquila.infn.it/cgi-bin/meteo/comuni/cetemps.html/response?site=${cty}&Invia=Invia&.cgifields=site`;
 
     //nightmare declaration (web scraper)
     const Nightmare = require('nightmare');
@@ -44,7 +48,6 @@ router.get('/city/:city/:prov', function (request, response) {
                 res.cityName = strPlit[0]; //name
                 res.cityProvince = strPlit[1]; //prov
                 res.cityHeight = strPlit[2] + 'm'; //height(m)
-                res.code = '200';
             } else {
                 throw 'city is not valid';
             }
@@ -94,11 +97,12 @@ router.get('/city/:city/:prov', function (request, response) {
         .end() //end of execution
         .then(function (res) { //post execution
             console.log(res);
+            response.statusCode = 200;
             response.send(res);
         })
         .catch(error => { //error handler
             var err = {};
-            err.code = '404';
+            err.statusCode = 404;
             err.status = 'ERROR';
             err.message = 'Execution Error';
             console.log('err', err);

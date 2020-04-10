@@ -11,6 +11,23 @@ module.exports = router;
 
 // example: http://localhost:3000/mock/weather/today/city/torrebruna/ch
 router.get('/weather/today/city/:city/:prov', function (request, response) {
+    //normalize params (cetemps need to read city with fist letter capitalized and province to upper case)
+    let param1 = request.params.city;
+    let cty = param1.charAt(0).toUpperCase() + param1.substring(1);
+    let param2 = request.params.prov;
+    let prv = param2.toUpperCase();
+
+    console.log(cty);
+    console.log(prv);
+
+    // url of cetemps
+    let URL = "";
+    prv !== 'NULL' //if province is not available
+        ? URL = `http://meteorema.aquila.infn.it/cgi-bin/meteo/comuni/cetemps.html/response?site=${cty}&Invia=Invia&psite=${prv}&.cgifields=site`
+        : URL = `http://meteorema.aquila.infn.it/cgi-bin/meteo/comuni/cetemps.html/response?site=${cty}&Invia=Invia&.cgifields=site`;
+
+    console.log(URL);
+
 
     let json = {
         "cityHeight": "845m",
@@ -323,8 +340,45 @@ router.get('/weather/fivedays/city/:city/:prov', function (request, response) {
 router.get('/coords/city/:city/:prov', function (request, response) {
 
     let json = {
-        "lon": 14.54,
-        "lat": 41.87
+        "lat": 42.3505500,
+        "lon": 13.3995400
+    };
+
+    response.statusCode = 200;
+    response.send(json);
+
+
+});
+
+
+// example: http://localhost:3000/mock/coords/getCity/42.3505500/13.3995400
+router.get('/coords/getCity/:lat/:lon', function (request, response) {
+
+    let json = {
+        "city": "L'Aquila"
+    };
+
+    response.statusCode = 200;
+    response.send(json);
+
+
+});
+
+
+// example: http://localhost:3000/mock/coords/getCity/42.3505500/13.3995400
+router.get('/weather/current/city/:city/:prov', function (request, response) {
+
+    let json = {
+        "cityHeight": "845m",
+        "cityName": "Torrebruna",
+        "cityProvince": "(CH)",
+        "weather": {
+            "currentHumidity": "73 %",
+            "currentPressure": "1027 mbar",
+            "currentStatus": "Cielo Coperto",
+            "currentTemperature": "6 °C",
+            "currentWind": "11 km/h"
+        }
     };
 
     response.statusCode = 200;
