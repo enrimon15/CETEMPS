@@ -370,8 +370,8 @@ router.get('/weather/current/city/:city/:prov', function (request, response) {
 
     let json = {
         "cityHeight": "845m",
-        "cityName": "Torrebruna",
-        "cityProvince": "(CH)",
+        "cityName": "L'Aquila",
+        "cityProvince": "(AQ)",
         "weather": {
             "currentHumidity": "73 %",
             "currentPressure": "1027 mbar",

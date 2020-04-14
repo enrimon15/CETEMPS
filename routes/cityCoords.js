@@ -14,8 +14,8 @@ router.get('/city/:city/:prov', function (req, resp) {
 
     var request = require("request");
 
-    var cty = req.params.city;
-    var prv = req.params.prov;
+    let cty = req.params.city;
+    let prv = req.params.prov;
     //string interpolation
     let urlCoord = "";
     prv !== 'NULL' //if province is not available
@@ -33,13 +33,13 @@ router.get('/city/:city/:prov', function (req, resp) {
 
     request(options, function(err, res, body) {
 
-        var error = {};
+        let error = {};
         error.status = 'ERROR';
-        error.message = 'Unable to get coords';
-        error.statusCode = 404;
+        error.message = 'Unable to get coords by city';
 
         if (err) { //if error
             console.log(err);
+            resp.statusCode = 404;
             resp.send(error);
         } else if (!err && res.statusCode == 200) { //if no error
             let coords = JSON.parse(body);
@@ -50,6 +50,7 @@ router.get('/city/:city/:prov', function (req, resp) {
                 resp.statusCode = 200;
                 resp.send(coords.coord);
             } else {
+                resp.statusCode = 404;
                 resp.send(error)
             }
 
@@ -64,15 +65,15 @@ router.get('/city/:city/:prov', function (req, resp) {
 // get mapping
 // endpoint configuration
 // example: http://localhost:3000/coords/getCity/42.3505500/13.3995400
-// take city by coords
+// get city by coords
 router.get('/getCity/:lat/:lon', function (req, resp) {
 
     var request = require("request");
 
-    var latitude = req.params.lat;
-    var longitude = req.params.lon;
+    let latitude = req.params.lat;
+    let longitude = req.params.lon;
     //string interpolation
-    var urlCoord = `https://revgeocode.search.hereapi.com/v1/revgeocode?at=${latitude}%2C${longitude}&lang=it-IT&apiKey=4TJndb4enFZCGebwN0Pnr9-JbF1Qbw0-pHNAXTGOtIw`;
+    let urlCoord = `https://revgeocode.search.hereapi.com/v1/revgeocode?at=${latitude}%2C${longitude}&lang=it-IT&apiKey=4TJndb4enFZCGebwN0Pnr9-JbF1Qbw0-pHNAXTGOtIw`;
 
     const options = {
         url: urlCoord,
@@ -84,13 +85,13 @@ router.get('/getCity/:lat/:lon', function (req, resp) {
 
     request(options, function(err, res, body) {
 
-        var error = {};
+        let error = {};
         error.status = 'ERROR';
-        error.message = 'Unable to get coords';
-        error.statusCode = 404;
+        error.message = 'Unable to get city by coords';
 
         if (err) { //if error
             console.log(err);
+            resp.statusCode = 404;
             resp.send(error);
         } else if (!err && res.statusCode == 200) { //if no error
             let jsonResponse = JSON.parse(body);
@@ -100,10 +101,11 @@ router.get('/getCity/:lat/:lon', function (req, resp) {
             if (jsonResponse.items != null && jsonResponse.items.length > 0) {
                 let city = jsonResponse.items[0].address.city;
                 let result = {};
-                resp.statusCode = 200;
                 result.city = city;
+                resp.statusCode = 200;
                 resp.send(result);
             } else {
+                resp.statusCode = 404;
                 resp.send(error)
             }
 
