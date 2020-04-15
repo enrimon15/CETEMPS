@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e0c9f5d-2b75-495c-bd2d-8e72012bb808" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Mock/apiMock.js" beforeDir="false" afterPath="$PROJECT_DIR$/Mock/apiMock.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asset/italy_cities.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/cityCoords.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/cityCoords.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/currentWeather.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/currentWeather.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/nextFiveDaysWeather.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/nextFiveDaysWeather.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/todayWeather.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/todayWeather.js" afterDir="false" />
@@ -22,10 +19,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server.js">
+        <entry file="file://$PROJECT_DIR$/routes/currentWeather.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="43" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
+            <state relative-caret-position="40">
+              <caret line="30" column="43" lean-forward="true" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -33,17 +30,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/cityCoords.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1290">
-              <caret line="86" selection-start-line="86" selection-end-line="86" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/currentWeather.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="67" lean-forward="true" selection-start-line="16" selection-start-column="67" selection-end-line="16" selection-end-column="67" />
+            <state relative-caret-position="180">
+              <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -51,8 +39,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Mock/apiMock.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5640">
-              <caret line="376" column="35" selection-start-line="376" selection-start-column="35" selection-end-line="376" selection-end-column="35" />
+            <state relative-caret-position="-26">
+              <caret line="494" column="31" lean-forward="true" selection-start-line="494" selection-start-column="31" selection-end-line="494" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -60,17 +48,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/nextFiveDaysWeather.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utilities/common.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="64" column="37" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="37" />
+            <state relative-caret-position="765">
+              <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -78,8 +57,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/todayWeather.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" selection-start-line="23" selection-end-line="24" selection-end-column="42" />
+            <state relative-caret-position="416">
+              <caret line="50" column="74" selection-start-line="50" selection-start-column="74" selection-end-line="50" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -108,11 +87,11 @@
       <list>
         <option value="$PROJECT_DIR$/node_modules/server.js" />
         <option value="$PROJECT_DIR$/server.js" />
-        <option value="$PROJECT_DIR$/Mock/apiMock.js" />
         <option value="$PROJECT_DIR$/utilities/wordBinding.js" />
-        <option value="$PROJECT_DIR$/routes/todayWeather.js" />
-        <option value="$PROJECT_DIR$/routes/nextFiveDaysWeather.js" />
         <option value="$PROJECT_DIR$/routes/cityCoords.js" />
+        <option value="$PROJECT_DIR$/Mock/apiMock.js" />
+        <option value="$PROJECT_DIR$/routes/nextFiveDaysWeather.js" />
+        <option value="$PROJECT_DIR$/routes/todayWeather.js" />
         <option value="$PROJECT_DIR$/routes/currentWeather.js" />
       </list>
     </option>
@@ -129,6 +108,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -155,7 +135,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -214,11 +193,12 @@
       <workItem from="1586595160986" duration="1641000" />
       <workItem from="1586764138113" duration="12464000" />
       <workItem from="1586861611954" duration="773000" />
+      <workItem from="1586942029083" duration="6601000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37767000" />
+    <option name="totallyTimeSpent" value="44368000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -272,43 +252,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/cityCoords.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1290">
-          <caret line="86" selection-start-line="86" selection-end-line="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Mock/apiMock.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5640">
-          <caret line="376" column="35" selection-start-line="376" selection-start-column="35" selection-end-line="376" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/todayWeather.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" selection-start-line="23" selection-end-line="24" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/currentWeather.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="67" lean-forward="true" selection-start-line="16" selection-start-column="67" selection-end-line="16" selection-end-column="67" />
+        <state relative-caret-position="180">
+          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utilities/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="64" column="37" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="37" />
+        <state>
+          <caret column="67" lean-forward="true" selection-start-column="67" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Mock/apiMock.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-26">
+          <caret line="494" column="31" lean-forward="true" selection-start-line="494" selection-start-column="31" selection-end-line="494" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/todayWeather.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="50" column="74" selection-start-line="50" selection-start-column="74" selection-end-line="50" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/currentWeather.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="30" column="43" lean-forward="true" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/nextFiveDaysWeather.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+        <state relative-caret-position="765">
+          <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="74" />
         </state>
       </provider>
     </entry>

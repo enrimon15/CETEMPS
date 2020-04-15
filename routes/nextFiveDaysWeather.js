@@ -11,8 +11,8 @@ module.exports = router;
 
 // get mapping
 // endpoint configuration
-// example: http://localhost:3000/weather/fivedays/torrebruna/ch/IT
-router.get('/:city/:prov/:language', function (request, response) {
+// example: http://localhost:3000/weather/fivedays/torrebruna/ch/IT/units=imperial
+router.get('/:city/:prov/:language/units=:units', function (request, response) {
 
     //normalize params (cetemps need to read city with fist letter capitalized and province to upper case)
     let param1 = request.params.city;
@@ -20,6 +20,7 @@ router.get('/:city/:prov/:language', function (request, response) {
     let param2 = request.params.prov;
     let prv = param2.toUpperCase();
     let language = request.params.language;
+    let units = request.params.units;
 
     // url of cetemps
     let URL = utilities.buildURL(cty,prv);
@@ -32,7 +33,7 @@ router.get('/:city/:prov/:language', function (request, response) {
     nightmare
         .goto(URL) //web site to visit
         .wait('tr') //what have to wait to start execution
-        .evaluate( async function(lang, conditionIT, conditionEN, dayOfWeekIT, dayOfWeekEN) { //execution --> I take the data I need through the HTML tags and classes
+        .evaluate( async function(lang, units, conditionIT, conditionEN, dayOfWeekIT, dayOfWeekEN) { //execution --> I take the data I need through the HTML tags and classes
 
             let res = {};
             let days = [];
@@ -44,7 +45,13 @@ router.get('/:city/:prov/:language', function (request, response) {
                 let strPlit = city.innerText.split(" ");
                 res.cityName = strPlit[0]; //name
                 res.cityProvince = strPlit[1]; //prov
-                res.cityHeight = strPlit[2] + 'm'; //height(m)
+                if (units == 'metric') { //height(m)
+                    res.cityHeight = strPlit[2] + 'm';
+                }
+                else if (units == 'imperial') { //height(ft)
+                    let heightImperial = Math.round(parseInt(strPlit[2]));
+                    res.cityHeight = `${heightImperial * 3.281}ft`;
+                }
             } else {
                 throw 'city is not valid';
             }
@@ -69,13 +76,23 @@ router.get('/:city/:prov/:language', function (request, response) {
                         day.day = `${dayOfWeekIT[dayOfWeek]} ${dayNum}`;
                 }
 
-                //lang == 'IT' ? day.day = `${dayOfW_it.get(dayOfWeek)} ${dayNum}` : day.day = `${dayOfW_en.get(dayOfWeek)} ${dayNum}`;
+                let temp = result.children[1].innerText;
+                let wind = result.children[4].querySelector('b').innerText;
+                if (units == 'metric') {
+                    weather.temperature = temp;
+                    weather.wind = wind;
+                }
+                else if (units == 'imperial') {
+                    let tempCelsius = parseInt(temp.split('')[0]);
+                    let tempFahrenheit = Math.round(((tempCelsius * 9/5) + 32));
+                    weather.temperature = `${tempFahrenheit} °F`;
 
-
-                weather.temperature = result.children[1].innerText;
+                    let windMetric = parseInt(wind.split(' ')[0]);
+                    let windImperial = Math.round(windMetric / 1.609);
+                    weather.wind = `${windImperial} mph`;
+                }
                 weather.pressure = result.children[2].innerText;
                 weather.humidity = result.children[3].innerText;
-                weather.wind = result.children[4].querySelector('b').innerText;
 
                 let img = result.children[5].querySelector('img').src;
                 let imgSplit = img.split('icons/');
@@ -152,7 +169,7 @@ router.get('/:city/:prov/:language', function (request, response) {
 
             res.days = days;
             return res;
-        }, language, utilities.status_it, utilities.status_en, utilities.dayOfW_it, utilities.dayOfW_en)
+        }, language, units, utilities.status_it, utilities.status_en, utilities.dayOfW_it, utilities.dayOfW_en)
         .end() //end of execution
         .then(function (res) { //post execution
             console.log(res);

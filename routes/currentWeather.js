@@ -13,8 +13,8 @@ module.exports = router;
 
 //get mapping
 //endpoint configuration
-// example: http://localhost:3000/weather/current/torrebruna/ch/EN
-router.get('/:city/:prov/:language', function (request, response) {
+// example: http://localhost:3000/weather/current/torrebruna/ch/EN/units=imperial
+router.get('/:city/:prov/:language/units=:units', function (request, response) {
 
     let param1 = request.params.city;
     let cty = param1.charAt(0).toUpperCase() + param1.substring(1); //normalize (cetemps need to read city with fist letter upper case)
@@ -23,6 +23,7 @@ router.get('/:city/:prov/:language', function (request, response) {
     let prv = param2.toUpperCase();
 
     let language = request.params.language;
+    let units = request.params.units;
 
     // url of cetemps
     let URL = utilities.buildURL(cty,prv);
@@ -34,7 +35,7 @@ router.get('/:city/:prov/:language', function (request, response) {
     nightmare
         .goto(URL) //web site to visit
         .wait('tr') //what have to wait to start execution
-        .evaluate(function (lang, conditionIT, conditionEN) { //execution --> I take the data I need through the HTML tags and classes
+        .evaluate(function (lang, units, conditionIT, conditionEN) { //execution --> I take the data I need through the HTML tags and classes
 
             const days = ['Domenica', 'Lunedi', 'Martedi', 'Mercoledi', 'Giovedi', 'Venerdi', 'Sabato'];
             const months = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
@@ -49,7 +50,13 @@ router.get('/:city/:prov/:language', function (request, response) {
                 let strPlit = city.innerText.split(" ");
                 res.cityName = strPlit[0]; //nome
                 res.cityProvince = strPlit[1]; //provincia
-                res.cityHeight = strPlit[2] + 'm'; //altezza(m)
+                if (units == 'metric') { //height(m)
+                    res.cityHeight = strPlit[2] + 'm';
+                }
+                else if (units == 'imperial') { //height(ft)
+                    let heightImperial = Math.round(parseInt(strPlit[2]));
+                    res.cityHeight = `${heightImperial * 3.281}ft`;
+                }
             } else {
                 throw 'city is not valid';
             }
@@ -75,10 +82,24 @@ router.get('/:city/:prov/:language', function (request, response) {
 
                 //controlla giorno ed ora corrente
                 if ((hourRow == currentHour) && (months[currentMonth] == monthRow) && (days[currentDayOfWeek] == dayRow) && (dayNumRow == currentDay)) {
-                    weather.currentTemperature = result.children[1].innerText;
+                    let temp = result.children[1].innerText;
+                    let wind = result.children[4].querySelector('b').innerText;
+                    if (metric == 'C') {
+                        weather.currentTemperature = temp;
+                        weather.currentWind = wind;
+                    }
+                    else if (metric == 'F') {
+                        let tempCelsius = parseInt(temp.split('')[0]);
+                        let tempFahrenheit = Math.round(((tempCelsius * 9/5) + 32));
+                        weather.currentTemperature = `${tempFahrenheit} °F`;
+
+                        let windMetric = parseInt(wind.split(' ')[0]);
+                        let windImperial = Math.round(windMetric / 1.609);
+                        weather.currentWind = `${windImperial} mph`;
+                    }
+
                     weather.currentPressure = result.children[2].innerText;
                     weather.currentHumidity = result.children[3].innerText;
-                    weather.currentWind = result.children[4].querySelector('b').innerText;
 
                     let img = result.children[5].querySelector('img').src;
                     let imgSplit = img.split('icons/');
@@ -100,7 +121,7 @@ router.get('/:city/:prov/:language', function (request, response) {
 
             res.weather = weather;
             return res;
-        }, language, utilities.status_it, utilities.status_en)
+        }, language, units, utilities.status_it, utilities.status_en)
         .end() //end of execution
         .then(function (res) { //post execution
             response.statusCode = 200;
