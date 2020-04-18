@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 //build url of cetemps, if province is 'NULL' it isn't passed as param
 let buildURL = function(city, province) {
     return province !== 'NULL' //if province is not available
@@ -57,6 +59,17 @@ let dayOfW_en = {
     'Sabato': 'Saturday'
 };
 
+//check auth api key
+let checkAuth = function(apiKey, resp) {
+    if (apiKey != process.env.API_KEY_CETEMPS_APP) {
+        resp.statusCode = 401;
+        resp.send('User not authorized');
+        return false;
+    } else {
+        return true;
+    }
+};
+
 
 module.exports.buildError = buildError;
 module.exports.buildURL = buildURL;
@@ -64,5 +77,6 @@ module.exports.status_it = status_it;
 module.exports.status_en = status_en;
 module.exports.dayOfW_it = dayOfW_it;
 module.exports.dayOfW_en = dayOfW_en;
+module.exports.checkAuth = checkAuth;
 
 

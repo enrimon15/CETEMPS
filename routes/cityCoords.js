@@ -1,6 +1,9 @@
 //express --> to make rest API
 var express = require('express');
 var router = express.Router();
+require('dotenv').config();
+
+var utilities = require('../utilities/common');
 
 /*********** export router to make it callable from server.js **************/
 module.exports = router;
@@ -8,10 +11,13 @@ module.exports = router;
 
 // get mapping
 // endpoint configuration
-// example: http://localhost:3000/coords/city/torrebruna/ch
+// example: http://localhost:3000/coords/city/torrebruna/ch/api-key=keyApp
 // take coords by city and province
-router.get('/city/:city/:prov', function (req, resp) {
+router.get('/city/:city/:prov/api-key=:key', function (req, resp) {
 
+    if (!utilities.checkAuth(req.params.key, resp)) return;
+
+    const api_key_openweather = process.env.API_KEY_OPENWEATHER;
     var request = require("request");
 
     let cty = req.params.city;
@@ -19,8 +25,8 @@ router.get('/city/:city/:prov', function (req, resp) {
     //string interpolation
     let urlCoord = "";
     prv !== 'NULL' //if province is not available
-        ? urlCoord = `https://api.openweathermap.org/data/2.5/weather?q=${cty},it,${prv}&appid=73f45256d96f6980fc804cca915873ea&amp;units=metric&amp;lang=it`
-        : urlCoord = `https://api.openweathermap.org/data/2.5/weather?q=${cty},it&appid=73f45256d96f6980fc804cca915873ea&amp;units=metric&amp;lang=it`;
+        ? urlCoord = `https://api.openweathermap.org/data/2.5/weather?q=${cty},it,${prv}&appid=${api_key_openweather}&amp;units=metric&amp;lang=it`
+        : urlCoord = `https://api.openweathermap.org/data/2.5/weather?q=${cty},it&appid=${api_key_openweather}&amp;units=metric&amp;lang=it`;
 
 
     const options = {
@@ -64,16 +70,19 @@ router.get('/city/:city/:prov', function (req, resp) {
 
 // get mapping
 // endpoint configuration
-// example: http://localhost:3000/coords/getCity/42.3505500/13.3995400
+// example: http://localhost:3000/coords/getCity/42.3505500/13.3995400/api-key=keyApp
 // get city by coords
 router.get('/getCity/:lat/:lon', function (req, resp) {
 
+    if (!utilities.checkAuth(req.params.key, resp)) return;
+
+    const api_key_heremaps = process.env.API_KEY_HEREMAPS;
     var request = require("request");
 
     let latitude = req.params.lat;
     let longitude = req.params.lon;
     //string interpolation
-    let urlCoord = `https://revgeocode.search.hereapi.com/v1/revgeocode?at=${latitude}%2C${longitude}&lang=it-IT&apiKey=4TJndb4enFZCGebwN0Pnr9-JbF1Qbw0-pHNAXTGOtIw`;
+    let urlCoord = `https://revgeocode.search.hereapi.com/v1/revgeocode?at=${latitude}%2C${longitude}&lang=it-IT&apiKey=${api_key_heremaps}`;
 
     const options = {
         url: urlCoord,

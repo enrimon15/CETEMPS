@@ -20,6 +20,8 @@ app.use('/weather/fivedays', nextFiveWeather);
 var cityCoords = require('./routes/cityCoords');
 app.use('/coords', cityCoords);
 
+require('dotenv').config();
+
 const port = process.env.PORT || 3000;
 
 
@@ -30,8 +32,6 @@ app.use('/mock', mock);
 
 //server configuration
 var server = app.listen(port, function () {
-    var host = server.address().address;
-    var port = server.address().port;
-    console.log(host);
+    let port = server.address().port;
     console.log("Tracking app listening at http://localhost/%s", port);
 });

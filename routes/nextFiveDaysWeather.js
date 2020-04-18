@@ -11,8 +11,10 @@ module.exports = router;
 
 // get mapping
 // endpoint configuration
-// example: http://localhost:3000/weather/fivedays/torrebruna/ch/IT/units=imperial
-router.get('/:city/:prov/:language/units=:units', function (request, response) {
+// example: http://localhost:3000/weather/fivedays/torrebruna/ch/IT/units=imperial/api-key=keyApp
+router.get('/:city/:prov/:language/units=:units/api-key=:key', function (request, response) {
+
+    if (!utilities.checkAuth(request.params.key, response)) return;
 
     //normalize params (cetemps need to read city with fist letter capitalized and province to upper case)
     let param1 = request.params.city;

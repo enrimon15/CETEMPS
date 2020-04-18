@@ -1,16 +1,17 @@
 //express to make rest API
 var express = require('express');
 var router = express.Router();
-
-//import getCoords function
-var getCoords = require('../request/getCoords');
+var utilities = require('../utilities/common');
 
 /*********** export router to make callable from server.js **************/
 module.exports = router;
 
 
-// example: http://localhost:3000/mock/weather/today/city/torrebruna/ch
-router.get('/weather/today/:city/:prov/:language/units=:units', function (request, response) {
+// example: http://localhost:3000/mock/weather/today/city/torrebruna/ch/api-key=keyApp
+router.get('/weather/today/:city/:prov/:language/units=:units/api-key=:key', function (request, response) {
+
+    if (!utilities.checkAuth(request.params.key, response)) return;
+
     //normalize params (cetemps need to read city with fist letter capitalized and province to upper case)
     let param1 = request.params.city;
     let cty = param1.charAt(0).toUpperCase() + param1.substring(1);
@@ -19,8 +20,6 @@ router.get('/weather/today/:city/:prov/:language/units=:units', function (reques
     let units = request.params.units;
     let language = request.params.language;
 
-    console.log(cty);
-    console.log(prv);
 
     // url of cetemps
     let URL = "";
@@ -28,7 +27,6 @@ router.get('/weather/today/:city/:prov/:language/units=:units', function (reques
         ? URL = `http://meteorema.aquila.infn.it/cgi-bin/meteo/comuni/cetemps.html/response?site=${cty}&Invia=Invia&psite=${prv}&.cgifields=site`
         : URL = `http://meteorema.aquila.infn.it/cgi-bin/meteo/comuni/cetemps.html/response?site=${cty}&Invia=Invia&.cgifields=site`;
 
-    console.log(URL);
 
     let json = {};
     if (language == 'IT') {
@@ -548,8 +546,10 @@ router.get('/weather/today/:city/:prov/:language/units=:units', function (reques
 
 
 
-// example: http://localhost:3000/mock/weather/fivedays/city/torrebruna/ch
-router.get('/weather/fivedays/:city/:prov/:language/units=:units', function (request, response) {
+// example: http://localhost:3000/mock/weather/fivedays/city/torrebruna/ch/api-key=keyApp
+router.get('/weather/fivedays/:city/:prov/:language/units=:units/api-key=:key', function (request, response) {
+
+    if (!utilities.checkAuth(request.params.key, response)) return;
 
     let units = request.params.units;
     let language = request.params.language;
@@ -693,8 +693,10 @@ router.get('/weather/fivedays/:city/:prov/:language/units=:units', function (req
 });
 
 
-// example: http://localhost:3000/mock/coords/city/torrebruna/ch
-router.get('/coords/city/:city/:prov', function (request, response) {
+// example: http://localhost:3000/mock/coords/city/torrebruna/ch/api-key=keyApp
+router.get('/coords/city/:city/:prov/api-key=:key', function (request, response) {
+
+    if (!utilities.checkAuth(request.params.key, response)) return;
 
     let json = {
         "lat": 42.3505500,
@@ -708,8 +710,10 @@ router.get('/coords/city/:city/:prov', function (request, response) {
 });
 
 
-// example: http://localhost:3000/mock/coords/getCity/42.3505500/13.3995400
-router.get('/coords/getCity/:lat/:lon', function (request, response) {
+// example: http://localhost:3000/mock/coords/getCity/42.3505500/13.3995400/api-key=keyApp
+router.get('/coords/getCity/:lat/:lon/api-key=:key', function (request, response) {
+
+    if (!utilities.checkAuth(request.params.key, response)) return;
 
     let json = {
         "city": "L'Aquila"
@@ -722,8 +726,10 @@ router.get('/coords/getCity/:lat/:lon', function (request, response) {
 });
 
 
-// example: http://localhost:3000/mock/coords/getCity/42.3505500/13.3995400
-router.get('/weather/current/:city/:prov/:language/units=:units', function (request, response) {
+// example: http://localhost:3000/mock/coords/getCity/42.3505500/13.3995400/api-key=keyApp
+router.get('/weather/current/:city/:prov/:language/units=:units/api-key=:key', function (request, response) {
+
+    if (!utilities.checkAuth(request.params.key, response)) return;
 
     let units = request.params.units;
     let language = request.params.language;
