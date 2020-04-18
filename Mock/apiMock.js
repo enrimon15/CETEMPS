@@ -38,6 +38,26 @@ router.get('/weather/today/:city/:prov/:language/units=:units', function (reques
             "cityProvince": "(CH)",
             "hours": [
                 {
+                    "hour": "00:00",
+                    "weather": {
+                        "humidity": "97 %",
+                        "pressure": "1018 mbar",
+                        "status": "Nuvoloso",
+                        "temperature": "4 °C",
+                        "wind": "12 km/h"
+                    }
+                },
+                {
+                    "hour": "01:00",
+                    "weather": {
+                        "humidity": "97 %",
+                        "pressure": "1018 mbar",
+                        "status": "Nuvoloso",
+                        "temperature": "4 °C",
+                        "wind": "12 km/h"
+                    }
+                },
+                {
                     "hour": "02:00",
                     "weather": {
                         "humidity": "97 %",
@@ -267,6 +287,26 @@ router.get('/weather/today/:city/:prov/:language/units=:units', function (reques
             "cityName": "Torrebruna",
             "cityProvince": "(CH)",
             "hours": [
+                {
+                    "hour": "00:00",
+                    "weather": {
+                        "humidity": "97 %",
+                        "pressure": "1018 mbar",
+                        "status": "Partly Cloudy",
+                        "temperature": "4 °C",
+                        "wind": "12 km/h"
+                    }
+                },
+                {
+                    "hour": "01:00",
+                    "weather": {
+                        "humidity": "97 %",
+                        "pressure": "1018 mbar",
+                        "status": "Rain",
+                        "temperature": "4 °C",
+                        "wind": "12 km/h"
+                    }
+                },
                 {
                     "hour": "02:00",
                     "weather": {
