@@ -20,18 +20,22 @@ app.use('/weather/fivedays', nextFiveWeather);
 var cityCoords = require('./routes/cityCoords');
 app.use('/coords', cityCoords);
 
+//creating the route for mock api
+var mock = require('./Mock/apiMock');
+app.use('/mock', mock);
+
+
 require('dotenv').config();
 
 const port = process.env.PORT || 3000;
 
 
-
-//creating the route for mock api
-var mock = require('./Mock/apiMock');
-app.use('/mock', mock);
+app.get('/', function(req, res, next) {
+    res.status(200).send("CETEMPS APP Server works!")
+});
 
 //server configuration
 var server = app.listen(port, function () {
     let port = server.address().port;
-    console.log("Tracking app listening at http://localhost/%s", port);
+    console.log("Tracking app listening at PORT: %s", port);
 });
