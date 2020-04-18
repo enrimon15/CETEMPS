@@ -4,9 +4,6 @@ var utilities = require('../utilities/common');
 var express = require('express');
 var router = express.Router();
 
-//import getCoords function
-var getCoords = require('../request/getCoords');
-
 /*********** export router to make callable from server.js **************/
 module.exports = router;
 
@@ -126,11 +123,6 @@ router.get('/:city/:prov/:language/units=:units', function (request, response) {
         .then(function (res) { //post execution
             response.statusCode = 200;
             response.send(res);
-            /*getCoords('Torrebruna', 'ch', function(results) {
-                res.coords = results;
-                console.log(res);
-                response.send(res);
-            });*/
         })
         .catch(error => { //error handler
             console.error('Search failed:', error);

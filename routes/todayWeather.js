@@ -136,7 +136,3 @@ router.get('/:city/:prov/:language/units=:units', function (request, response) {
 
 
 });
-
-//const status_it = new Map([['clear.gif', 'Sereno'], ['sunny.gif', 'Soleggiato'], ['cover.gif', 'Cielo Coperto'], ['ncover.gif', 'Cielo Coperto'], ['cloud.gif', 'Nuvoloso'], ['rain.gif', 'Pioggia'], ['snow.gif', 'Neve']]);
-//const status_en = new Map([['clear.gif', 'Clear'], ['sunny.gif', 'Sunny'], ['cover.gif', 'Partly Cloudy'], ['ncover.gif', 'Partly Cloudy'], ['cloud.gif', 'Cloudy'], ['rain.gif', 'Rain'], ['snow.gif', 'Snow']]);
-

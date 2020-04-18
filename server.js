@@ -20,6 +20,8 @@ app.use('/weather/fivedays', nextFiveWeather);
 var cityCoords = require('./routes/cityCoords');
 app.use('/coords', cityCoords);
 
+const port = process.env.PORT || 3000;
+
 
 
 //creating the route for mock api
@@ -27,8 +29,9 @@ var mock = require('./Mock/apiMock');
 app.use('/mock', mock);
 
 //server configuration
-var server = app.listen(3000, function () {
-    //var host = server.address().address;
+var server = app.listen(port, function () {
+    var host = server.address().address;
     var port = server.address().port;
+    console.log(host);
     console.log("Tracking app listening at http://localhost/%s", port);
 });
