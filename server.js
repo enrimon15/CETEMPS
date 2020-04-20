@@ -2,7 +2,10 @@
 
 //express to make rest API
 var express = require('express');
+var cors = require('cors')
 var app = express();
+
+app.use(cors())
 
 //creating the route for current weather file
 var currentWeather = require('./routes/currentWeather');
