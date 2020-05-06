@@ -83,12 +83,12 @@ router.get('/:city/:prov/:language/units=:units/api-key=:key', function (request
                 if ((hourRow == currentHour) && (months[currentMonth] == monthRow) && (days[currentDayOfWeek] == dayRow) && (dayNumRow == currentDay)) {
                     let temp = result.children[1].innerText;
                     let wind = result.children[4].querySelector('b').innerText;
-                    if (metric == 'C') {
+                    if (units == 'metric') {
                         weather.currentTemperature = temp;
                         weather.currentWind = wind;
                     }
-                    else if (metric == 'F') {
-                        let tempCelsius = parseInt(temp.split('')[0]);
+                    else if (units == 'imperial') {
+                        let tempCelsius = parseInt(temp.split(' ')[0]);
                         let tempFahrenheit = Math.round(((tempCelsius * 9/5) + 32));
                         weather.currentTemperature = `${tempFahrenheit} °F`;
 

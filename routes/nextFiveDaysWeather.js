@@ -85,7 +85,7 @@ router.get('/:city/:prov/:language/units=:units/api-key=:key', function (request
                     weather.wind = wind;
                 }
                 else if (units == 'imperial') {
-                    let tempCelsius = parseInt(temp.split('')[0]);
+                    let tempCelsius = parseInt(temp.split(' ')[0]);
                     let tempFahrenheit = Math.round(((tempCelsius * 9/5) + 32));
                     weather.temperature = `${tempFahrenheit} °F`;
 
@@ -174,7 +174,6 @@ router.get('/:city/:prov/:language/units=:units/api-key=:key', function (request
         }, language, units, utilities.status_it, utilities.status_en, utilities.dayOfW_it, utilities.dayOfW_en)
         .end() //end of execution
         .then(function (res) { //post execution
-            console.log(res);
             response.statusCode = 200;
             response.send(res);
         })

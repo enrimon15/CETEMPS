@@ -7,7 +7,7 @@ var utilities = require('../utilities/common');
 module.exports = router;
 
 
-// example: http://localhost:3000/mock/weather/today/city/torrebruna/ch/api-key=keyApp
+// example: http://localhost:3000/mock/weather/today/torrebruna/ch/IT/metric/api-key=keyApp
 router.get('/weather/today/:city/:prov/:language/units=:units/api-key=:key', function (request, response) {
 
     if (!utilities.checkAuth(request.params.key, response)) return;
@@ -31,248 +31,248 @@ router.get('/weather/today/:city/:prov/:language/units=:units/api-key=:key', fun
     let json = {};
     if (language == 'IT') {
         json = {
-            "cityHeight": "845m",
-            "cityName": "Torrebruna",
-            "cityProvince": "(CH)",
+            "cityHeight": "714m",
+            "cityName": "L'Aquila",
+            "cityProvince": "(AQ)",
             "hours": [
                 {
                     "hour": "00:00",
                     "weather": {
-                        "humidity": "97 %",
-                        "pressure": "1018 mbar",
-                        "status": "Nuvoloso",
-                        "temperature": "4 °C",
-                        "wind": "12 km/h"
+                        "humidity": "78 %",
+                        "pressure": "1015 mbar",
+                        "status": "Sereno",
+                        "temperature": "10 °C",
+                        "wind": "14 km/h"
                     }
                 },
                 {
                     "hour": "01:00",
                     "weather": {
-                        "humidity": "97 %",
-                        "pressure": "1018 mbar",
-                        "status": "Nuvoloso",
-                        "temperature": "4 °C",
-                        "wind": "12 km/h"
+                        "humidity": "78 %",
+                        "pressure": "1015 mbar",
+                        "status": "Sereno",
+                        "temperature": "10 °C",
+                        "wind": "14 km/h"
                     }
                 },
                 {
                     "hour": "02:00",
                     "weather": {
-                        "humidity": "97 %",
-                        "pressure": "1018 mbar",
-                        "status": "Nuvoloso",
-                        "temperature": "4 °C",
-                        "wind": "12 km/h"
+                        "humidity": "78 %",
+                        "pressure": "1015 mbar",
+                        "status": "Sereno",
+                        "temperature": "11 °C",
+                        "wind": "14 km/h"
                     }
                 },
                 {
                     "hour": "03:00",
                     "weather": {
-                        "humidity": "98 %",
-                        "pressure": "1019 mbar",
-                        "status": "Nuvoloso",
-                        "temperature": "4 °C",
-                        "wind": "16 km/h"
+                        "humidity": "78 %",
+                        "pressure": "1015 mbar",
+                        "status": "Sereno",
+                        "temperature": "11 °C",
+                        "wind": "14 km/h"
                     }
                 },
                 {
                     "hour": "04:00",
                     "weather": {
-                        "humidity": "98 %",
-                        "pressure": "1018 mbar",
-                        "status": "Nuvoloso",
-                        "temperature": "3 °C",
-                        "wind": "12 km/h"
+                        "humidity": "74 %",
+                        "pressure": "1014 mbar",
+                        "status": "Sereno",
+                        "temperature": "11 °C",
+                        "wind": "14 km/h"
                     }
                 },
                 {
                     "hour": "05:00",
                     "weather": {
-                        "humidity": "97 %",
-                        "pressure": "1018 mbar",
-                        "status": "Nuvoloso",
-                        "temperature": "3 °C",
-                        "wind": "18 km/h"
+                        "humidity": "72 %",
+                        "pressure": "1015 mbar",
+                        "status": "Soleggiato",
+                        "temperature": "11 °C",
+                        "wind": "14 km/h"
                     }
                 },
                 {
                     "hour": "06:00",
                     "weather": {
-                        "humidity": "97 %",
-                        "pressure": "1019 mbar",
-                        "status": "Nuvoloso",
-                        "temperature": "3 °C",
-                        "wind": "16 km/h"
+                        "humidity": "69 %",
+                        "pressure": "1015 mbar",
+                        "status": "Soleggiato",
+                        "temperature": "11 °C",
+                        "wind": "14 km/h"
                     }
                 },
                 {
                     "hour": "07:00",
                     "weather": {
-                        "humidity": "98 %",
-                        "pressure": "1019 mbar",
-                        "status": "Nuvoloso",
-                        "temperature": "3 °C",
-                        "wind": "19 km/h"
+                        "humidity": "65 %",
+                        "pressure": "1015 mbar",
+                        "status": "Soleggiato",
+                        "temperature": "11 °C",
+                        "wind": "11 km/h"
                     }
                 },
                 {
                     "hour": "08:00",
                     "weather": {
-                        "humidity": "96 %",
-                        "pressure": "1020 mbar",
-                        "status": "Nuvoloso",
-                        "temperature": "4 °C",
-                        "wind": "23 km/h"
+                        "humidity": "58 %",
+                        "pressure": "1014 mbar",
+                        "status": "Soleggiato",
+                        "temperature": "14 °C",
+                        "wind": "5 km/h"
                     }
                 },
                 {
                     "hour": "09:00",
                     "weather": {
-                        "humidity": "93 %",
-                        "pressure": "1021 mbar",
-                        "status": "Nuvoloso",
-                        "temperature": "4 °C",
-                        "wind": "23 km/h"
+                        "humidity": "46 %",
+                        "pressure": "1014 mbar",
+                        "status": "Soleggiato",
+                        "temperature": "16 °C",
+                        "wind": "8 km/h"
                     }
                 },
                 {
                     "hour": "10:00",
                     "weather": {
-                        "humidity": "84 %",
-                        "pressure": "1021 mbar",
-                        "status": "Nuvoloso",
-                        "temperature": "5 °C",
-                        "wind": "31 km/h"
+                        "humidity": "44 %",
+                        "pressure": "1014 mbar",
+                        "status": "Soleggiato",
+                        "temperature": "17 °C",
+                        "wind": "9 km/h"
                     }
                 },
                 {
                     "hour": "11:00",
                     "weather": {
-                        "humidity": "89 %",
-                        "pressure": "1021 mbar",
-                        "status": "Nuvoloso",
-                        "temperature": "4 °C",
-                        "wind": "24 km/h"
+                        "humidity": "47 %",
+                        "pressure": "1013 mbar",
+                        "status": "Soleggiato",
+                        "temperature": "18 °C",
+                        "wind": "16 km/h"
                     }
                 },
                 {
                     "hour": "12:00",
                     "weather": {
-                        "humidity": "93 %",
-                        "pressure": "1021 mbar",
-                        "status": "Nuvoloso",
-                        "temperature": "5 °C",
-                        "wind": "24 km/h"
+                        "humidity": "60 %",
+                        "pressure": "1014 mbar",
+                        "status": "Soleggiato",
+                        "temperature": "17 °C",
+                        "wind": "19 km/h"
                     }
                 },
                 {
                     "hour": "13:00",
                     "weather": {
-                        "humidity": "96 %",
-                        "pressure": "1022 mbar",
-                        "status": "Pioggia",
-                        "temperature": "4 °C",
-                        "wind": "20 km/h"
+                        "humidity": "68 %",
+                        "pressure": "1014 mbar",
+                        "status": "Cielo Coperto",
+                        "temperature": "17 °C",
+                        "wind": "22 km/h"
                     }
                 },
                 {
                     "hour": "14:00",
                     "weather": {
-                        "humidity": "87 %",
-                        "pressure": "1022 mbar",
+                        "humidity": "68 %",
+                        "pressure": "1014 mbar",
                         "status": "Nuvoloso",
-                        "temperature": "5 °C",
-                        "wind": "18 km/h"
+                        "temperature": "17 °C",
+                        "wind": "21 km/h"
                     }
                 },
                 {
                     "hour": "15:00",
                     "weather": {
-                        "humidity": "88 %",
-                        "pressure": "1022 mbar",
+                        "humidity": "67 %",
+                        "pressure": "1014 mbar",
                         "status": "Nuvoloso",
-                        "temperature": "5 °C",
-                        "wind": "12 km/h"
+                        "temperature": "19 °C",
+                        "wind": "21 km/h"
                     }
                 },
                 {
                     "hour": "16:00",
                     "weather": {
-                        "humidity": "87 %",
-                        "pressure": "1022 mbar",
+                        "humidity": "71 %",
+                        "pressure": "1015 mbar",
                         "status": "Nuvoloso",
-                        "temperature": "5 °C",
-                        "wind": "16 km/h"
+                        "temperature": "16 °C",
+                        "wind": "17 km/h"
                     }
                 },
                 {
                     "hour": "17:00",
                     "weather": {
-                        "humidity": "92 %",
-                        "pressure": "1023 mbar",
+                        "humidity": "77 %",
+                        "pressure": "1014 mbar",
                         "status": "Nuvoloso",
-                        "temperature": "5 °C",
-                        "wind": "9 km/h"
+                        "temperature": "15 °C",
+                        "wind": "16 km/h"
                     }
                 },
                 {
                     "hour": "18:00",
                     "weather": {
-                        "humidity": "97 %",
-                        "pressure": "1023 mbar",
+                        "humidity": "76 %",
+                        "pressure": "1015 mbar",
                         "status": "Nuvoloso",
-                        "temperature": "3 °C",
-                        "wind": "11 km/h"
+                        "temperature": "14 °C",
+                        "wind": "17 km/h"
                     }
                 },
                 {
                     "hour": "19:00",
                     "weather": {
-                        "humidity": "98 %",
-                        "pressure": "1024 mbar",
+                        "humidity": "82 %",
+                        "pressure": "1016 mbar",
                         "status": "Nuvoloso",
-                        "temperature": "2 °C",
-                        "wind": "13 km/h"
+                        "temperature": "12 °C",
+                        "wind": "16 km/h"
                     }
                 },
                 {
                     "hour": "20:00",
                     "weather": {
-                        "humidity": "96 %",
-                        "pressure": "1024 mbar",
-                        "status": "Nuvoloso",
-                        "temperature": "2 °C",
-                        "wind": "13 km/h"
+                        "humidity": "90 %",
+                        "pressure": "1017 mbar",
+                        "status": "Pioggia",
+                        "temperature": "11 °C",
+                        "wind": "12 km/h"
                     }
                 },
                 {
                     "hour": "21:00",
                     "weather": {
-                        "humidity": "97 %",
-                        "pressure": "1025 mbar",
+                        "humidity": "90 %",
+                        "pressure": "1017 mbar",
                         "status": "Nuvoloso",
-                        "temperature": "1 °C",
-                        "wind": "14 km/h"
+                        "temperature": "11 °F",
+                        "wind": "12 km/h"
                     }
                 },
                 {
                     "hour": "22:00",
                     "weather": {
-                        "humidity": "98 %",
-                        "pressure": "1025 mbar",
+                        "humidity": "87 %",
+                        "pressure": "1018 mbar",
                         "status": "Nuvoloso",
-                        "temperature": "1 °C",
-                        "wind": "15 km/h"
+                        "temperature": "11 °F",
+                        "wind": "11 km/h"
                     }
                 },
                 {
                     "hour": "23:00",
                     "weather": {
-                        "humidity": "96 %",
-                        "pressure": "1025 mbar",
+                        "humidity": "85 %",
+                        "pressure": "1019 mbar",
                         "status": "Nuvoloso",
-                        "temperature": "1 °C",
-                        "wind": "15 km/h"
+                        "temperature": "11 °F",
+                        "wind": "10 km/h"
                     }
                 }
             ]
@@ -281,259 +281,265 @@ router.get('/weather/today/:city/:prov/:language/units=:units/api-key=:key', fun
 
     else if (language == 'EN') {
         json = {
-            "cityHeight": "845m",
-            "cityName": "Torrebruna",
-            "cityProvince": "(CH)",
+            "cityHeight": "714m",
+            "cityName": "L'Aquila",
+            "cityProvince": "(AQ)",
             "hours": [
                 {
                     "hour": "00:00",
                     "weather": {
-                        "humidity": "97 %",
-                        "pressure": "1018 mbar",
-                        "status": "Partly Cloudy",
-                        "temperature": "4 °C",
-                        "wind": "12 km/h"
+                        "humidity": "78 %",
+                        "pressure": "1015 mbar",
+                        "status": "Clear",
+                        "temperature": "10 °C",
+                        "wind": "14 km/h"
                     }
                 },
                 {
                     "hour": "01:00",
                     "weather": {
-                        "humidity": "97 %",
-                        "pressure": "1018 mbar",
-                        "status": "Rain",
-                        "temperature": "4 °C",
-                        "wind": "12 km/h"
+                        "humidity": "78 %",
+                        "pressure": "1015 mbar",
+                        "status": "Clear",
+                        "temperature": "10 °C",
+                        "wind": "14 km/h"
                     }
                 },
                 {
                     "hour": "02:00",
                     "weather": {
-                        "humidity": "97 %",
-                        "pressure": "1018 mbar",
-                        "status": "Cloudy",
-                        "temperature": "4 °C",
-                        "wind": "12 km/h"
+                        "humidity": "78 %",
+                        "pressure": "1015 mbar",
+                        "status": "Clear",
+                        "temperature": "11 °C",
+                        "wind": "14 km/h"
                     }
                 },
                 {
                     "hour": "03:00",
                     "weather": {
-                        "humidity": "98 %",
-                        "pressure": "1019 mbar",
-                        "status": "Cloudy",
-                        "temperature": "4 °C",
-                        "wind": "16 km/h"
+                        "humidity": "78 %",
+                        "pressure": "1015 mbar",
+                        "status": "Clear",
+                        "temperature": "11 °C",
+                        "wind": "14 km/h"
                     }
                 },
                 {
                     "hour": "04:00",
                     "weather": {
-                        "humidity": "98 %",
-                        "pressure": "1018 mbar",
-                        "status": "Cloudy",
-                        "temperature": "3 °C",
-                        "wind": "12 km/h"
+                        "humidity": "74 %",
+                        "pressure": "1014 mbar",
+                        "status": "Clear",
+                        "temperature": "11 °C",
+                        "wind": "14 km/h"
                     }
                 },
                 {
                     "hour": "05:00",
                     "weather": {
-                        "humidity": "97 %",
-                        "pressure": "1018 mbar",
-                        "status": "Cloudy",
-                        "temperature": "3 °C",
-                        "wind": "18 km/h"
+                        "humidity": "72 %",
+                        "pressure": "1015 mbar",
+                        "status": "Sunny",
+                        "temperature": "11 °C",
+                        "wind": "14 km/h"
                     }
                 },
                 {
                     "hour": "06:00",
                     "weather": {
-                        "humidity": "97 %",
-                        "pressure": "1019 mbar",
-                        "status": "Cloudy",
-                        "temperature": "3 °C",
-                        "wind": "16 km/h"
+                        "humidity": "69 %",
+                        "pressure": "1015 mbar",
+                        "status": "Sunny",
+                        "temperature": "11 °C",
+                        "wind": "14 km/h"
                     }
                 },
                 {
                     "hour": "07:00",
                     "weather": {
-                        "humidity": "98 %",
-                        "pressure": "1019 mbar",
-                        "status": "Cloudy",
-                        "temperature": "3 °C",
-                        "wind": "19 km/h"
+                        "humidity": "65 %",
+                        "pressure": "1015 mbar",
+                        "status": "Sunny",
+                        "temperature": "11 °C",
+                        "wind": "11 km/h"
                     }
                 },
                 {
                     "hour": "08:00",
                     "weather": {
-                        "humidity": "96 %",
-                        "pressure": "1020 mbar",
-                        "status": "Cloudy",
-                        "temperature": "4 °C",
-                        "wind": "23 km/h"
+                        "humidity": "58 %",
+                        "pressure": "1014 mbar",
+                        "status": "Sunny",
+                        "temperature": "14 °C",
+                        "wind": "5 km/h"
                     }
                 },
                 {
                     "hour": "09:00",
                     "weather": {
-                        "humidity": "93 %",
-                        "pressure": "1021 mbar",
-                        "status": "Cloudy",
-                        "temperature": "4 °C",
-                        "wind": "23 km/h"
+                        "humidity": "46 %",
+                        "pressure": "1014 mbar",
+                        "status": "Sunny",
+                        "temperature": "16 °C",
+                        "wind": "8 km/h"
                     }
                 },
                 {
                     "hour": "10:00",
                     "weather": {
-                        "humidity": "84 %",
-                        "pressure": "1021 mbar",
-                        "status": "Cloudy",
-                        "temperature": "5 °C",
-                        "wind": "31 km/h"
+                        "humidity": "44 %",
+                        "pressure": "1014 mbar",
+                        "status": "Sunny",
+                        "temperature": "17 °C",
+                        "wind": "9 km/h"
                     }
                 },
                 {
                     "hour": "11:00",
                     "weather": {
-                        "humidity": "89 %",
-                        "pressure": "1021 mbar",
-                        "status": "Cloudy",
-                        "temperature": "4 °C",
-                        "wind": "24 km/h"
+                        "humidity": "47 %",
+                        "pressure": "1013 mbar",
+                        "status": "Sunny",
+                        "temperature": "18 °C",
+                        "wind": "16 km/h"
                     }
                 },
                 {
                     "hour": "12:00",
                     "weather": {
-                        "humidity": "93 %",
-                        "pressure": "1021 mbar",
-                        "status": "Cloudy",
-                        "temperature": "5 °C",
-                        "wind": "24 km/h"
+                        "humidity": "60 %",
+                        "pressure": "1014 mbar",
+                        "status": "Sunny",
+                        "temperature": "17 °C",
+                        "wind": "19 km/h"
                     }
                 },
                 {
                     "hour": "13:00",
                     "weather": {
-                        "humidity": "96 %",
-                        "pressure": "1022 mbar",
-                        "status": "Rain",
-                        "temperature": "4 °C",
-                        "wind": "20 km/h"
+                        "humidity": "68 %",
+                        "pressure": "1014 mbar",
+                        "status": "Partly Cloudy",
+                        "temperature": "17 °C",
+                        "wind": "22 km/h"
                     }
                 },
                 {
                     "hour": "14:00",
                     "weather": {
-                        "humidity": "87 %",
-                        "pressure": "1022 mbar",
+                        "humidity": "68 %",
+                        "pressure": "1014 mbar",
                         "status": "Cloudy",
-                        "temperature": "5 °C",
-                        "wind": "18 km/h"
+                        "temperature": "17 °C",
+                        "wind": "21 km/h"
                     }
                 },
                 {
                     "hour": "15:00",
                     "weather": {
-                        "humidity": "88 %",
-                        "pressure": "1022 mbar",
+                        "humidity": "67 %",
+                        "pressure": "1014 mbar",
                         "status": "Cloudy",
-                        "temperature": "5 °C",
-                        "wind": "12 km/h"
+                        "temperature": "19 °C",
+                        "wind": "21 km/h"
                     }
                 },
                 {
                     "hour": "16:00",
                     "weather": {
-                        "humidity": "87 %",
-                        "pressure": "1022 mbar",
+                        "humidity": "71 %",
+                        "pressure": "1015 mbar",
                         "status": "Cloudy",
-                        "temperature": "5 °C",
-                        "wind": "16 km/h"
+                        "temperature": "16 °C",
+                        "wind": "17 km/h"
                     }
                 },
                 {
                     "hour": "17:00",
                     "weather": {
-                        "humidity": "92 %",
-                        "pressure": "1023 mbar",
+                        "humidity": "77 %",
+                        "pressure": "1014 mbar",
                         "status": "Cloudy",
-                        "temperature": "5 °C",
-                        "wind": "9 km/h"
+                        "temperature": "15 °C",
+                        "wind": "16 km/h"
                     }
                 },
                 {
                     "hour": "18:00",
                     "weather": {
-                        "humidity": "97 %",
-                        "pressure": "1023 mbar",
+                        "humidity": "76 %",
+                        "pressure": "1015 mbar",
                         "status": "Cloudy",
-                        "temperature": "3 °C",
-                        "wind": "11 km/h"
+                        "temperature": "14 °C",
+                        "wind": "17 km/h"
                     }
                 },
                 {
                     "hour": "19:00",
                     "weather": {
-                        "humidity": "98 %",
-                        "pressure": "1024 mbar",
+                        "humidity": "82 %",
+                        "pressure": "1016 mbar",
                         "status": "Cloudy",
-                        "temperature": "2 °C",
-                        "wind": "13 km/h"
+                        "temperature": "12 °C",
+                        "wind": "16 km/h"
                     }
                 },
                 {
                     "hour": "20:00",
                     "weather": {
-                        "humidity": "96 %",
-                        "pressure": "1024 mbar",
-                        "status": "Cloudy",
-                        "temperature": "2 °C",
-                        "wind": "13 km/h"
+                        "humidity": "90 %",
+                        "pressure": "1017 mbar",
+                        "status": "Rain",
+                        "temperature": "11 °C",
+                        "wind": "12 km/h"
                     }
                 },
                 {
                     "hour": "21:00",
                     "weather": {
-                        "humidity": "97 %",
-                        "pressure": "1025 mbar",
+                        "humidity": "90 %",
+                        "pressure": "1017 mbar",
                         "status": "Cloudy",
-                        "temperature": "1 °C",
-                        "wind": "14 km/h"
+                        "temperature": "11 °C",
+                        "wind": "12 km/h"
                     }
                 },
                 {
                     "hour": "22:00",
                     "weather": {
-                        "humidity": "98 %",
-                        "pressure": "1025 mbar",
+                        "humidity": "87 %",
+                        "pressure": "1018 mbar",
                         "status": "Cloudy",
-                        "temperature": "1 °C",
-                        "wind": "15 km/h"
+                        "temperature": "11 °C",
+                        "wind": "11 km/h"
                     }
                 },
                 {
                     "hour": "23:00",
                     "weather": {
-                        "humidity": "96 %",
-                        "pressure": "1025 mbar",
+                        "humidity": "85 %",
+                        "pressure": "1019 mbar",
                         "status": "Cloudy",
-                        "temperature": "1 °C",
-                        "wind": "15 km/h"
+                        "temperature": "11 °C",
+                        "wind": "10 km/h"
                     }
                 }
             ]
         };
     }
 
+
     if (units == 'imperial') {
-        json.cityHeight = '1000ft';
+        json.cityHeight = '2342ft';
         json.hours.forEach( (hour) => {
-            hour.weather.temperature = '40 °F';
-            hour.weather.wind = '12 mph';
+            let tempCelsius = parseInt(hour.weather.temperature.split(' ')[0]);
+            let tempFahrenheit = Math.round(((tempCelsius * 9/5) + 32));
+            hour.weather.temperature = `${tempFahrenheit} °F`;
+
+            let windMetric = parseInt(hour.weather.wind.split(' ')[0]);
+            let windImperial = Math.round(windMetric / 1.609);
+            hour.weather.wind = `${windImperial} mph`;
         });
     }
 
@@ -551,6 +557,7 @@ router.get('/weather/fivedays/:city/:prov/:language/units=:units/api-key=:key', 
 
     if (!utilities.checkAuth(request.params.key, response)) return;
 
+
     let units = request.params.units;
     let language = request.params.language;
 
@@ -558,58 +565,58 @@ router.get('/weather/fivedays/:city/:prov/:language/units=:units/api-key=:key', 
 
     if (language == 'IT') {
         json = {
-            "cityHeight": "845m",
-            "cityName": "Torrebruna",
-            "cityProvince": "(CH)",
+            "cityHeight": "714m",
+            "cityName": "L'Aquila",
+            "cityProvince": "(AQ)",
             "days": [
                 {
-                    "day": "Lunedì 16",
+                    "day": "Giovedì 7",
                     "weather": {
-                        "humidity": "73 %",
-                        "pressure": "1027 mbar",
-                        "status": "Cielo Coperto",
-                        "temperature": "6 °C",
-                        "wind": "11 km/h"
-                    }
-                },
-                {
-                    "day": "Martedì 17",
-                    "weather": {
-                        "humidity": "85 %",
-                        "pressure": "1031 mbar",
-                        "status": "Nuvoloso",
-                        "temperature": "7 °C",
+                        "humidity": "38 %",
+                        "pressure": "1022 mbar",
+                        "status": "Soleggiato",
+                        "temperature": "16 °C",
                         "wind": "15 km/h"
                     }
                 },
                 {
-                    "day": "Mercoledì 18",
+                    "day": "Venerdì 8",
                     "weather": {
-                        "humidity": "76 %",
-                        "pressure": "1028 mbar",
-                        "status": "Cielo Coperto",
-                        "temperature": "8 °C",
-                        "wind": "20 km/h"
-                    }
-                },
-                {
-                    "day": "Giovedì 19",
-                    "weather": {
-                        "humidity": "82 %",
-                        "pressure": "1025 mbar",
-                        "status": "Nuvoloso",
-                        "temperature": "9 °C",
-                        "wind": "14 km/h"
-                    }
-                },
-                {
-                    "day": "Venerdì 20",
-                    "weather": {
-                        "humidity": "83 %",
+                        "humidity": "30 %",
                         "pressure": "1021 mbar",
+                        "status": "Soleggiato",
+                        "temperature": "21 °C",
+                        "wind": "15 km/h"
+                    }
+                },
+                {
+                    "day": "Sabato 9",
+                    "weather": {
+                        "humidity": "23 %",
+                        "pressure": "1016 mbar",
                         "status": "Nuvoloso",
-                        "temperature": "9 °C",
-                        "wind": "11 km/h"
+                        "temperature": "22 °C",
+                        "wind": "12 km/h"
+                    }
+                },
+                {
+                    "day": "Domenica 10",
+                    "weather": {
+                        "humidity": "39 %",
+                        "pressure": "1012 mbar",
+                        "status": "Cielo Coperto",
+                        "temperature": "24 °C",
+                        "wind": "18 km/h"
+                    }
+                },
+                {
+                    "day": "Lunedì 11",
+                    "weather": {
+                        "humidity": "40 %",
+                        "pressure": "1004 mbar",
+                        "status": "Pioggia",
+                        "temperature": "22 °C",
+                        "wind": "17 km/h"
                     }
                 }
             ]
@@ -618,58 +625,58 @@ router.get('/weather/fivedays/:city/:prov/:language/units=:units/api-key=:key', 
 
     else if (language == 'EN') {
         json = {
-            "cityHeight": "845m",
-            "cityName": "Torrebruna",
-            "cityProvince": "(CH)",
+            "cityHeight": "714m",
+            "cityName": "L'Aquila",
+            "cityProvince": "(AQ)",
             "days": [
                 {
-                    "day": "Monday 16",
+                    "day": "Thursday 7",
                     "weather": {
-                        "humidity": "73 %",
-                        "pressure": "1027 mbar",
-                        "status": "Partly Cloudy",
-                        "temperature": "6 °C",
-                        "wind": "11 km/h"
-                    }
-                },
-                {
-                    "day": "Tuesday 17",
-                    "weather": {
-                        "humidity": "85 %",
-                        "pressure": "1031 mbar",
-                        "status": "Cloudy",
-                        "temperature": "7 °C",
+                        "humidity": "38 %",
+                        "pressure": "1022 mbar",
+                        "status": "Sunny",
+                        "temperature": "16 °C",
                         "wind": "15 km/h"
                     }
                 },
                 {
-                    "day": "Wednesday 18",
+                    "day": "Friday 8",
                     "weather": {
-                        "humidity": "76 %",
-                        "pressure": "1028 mbar",
-                        "status": "Partly Cloudy",
-                        "temperature": "8 °C",
-                        "wind": "20 km/h"
-                    }
-                },
-                {
-                    "day": "Thursday 19",
-                    "weather": {
-                        "humidity": "82 %",
-                        "pressure": "1025 mbar",
-                        "status": "Cloudy",
-                        "temperature": "9 °C",
-                        "wind": "14 km/h"
-                    }
-                },
-                {
-                    "day": "Friday 20",
-                    "weather": {
-                        "humidity": "83 %",
+                        "humidity": "30 %",
                         "pressure": "1021 mbar",
+                        "status": "Sunny",
+                        "temperature": "21 °C",
+                        "wind": "15 km/h"
+                    }
+                },
+                {
+                    "day": "Saturday 9",
+                    "weather": {
+                        "humidity": "23 %",
+                        "pressure": "1016 mbar",
                         "status": "Cloudy",
-                        "temperature": "9 °C",
-                        "wind": "11 km/h"
+                        "temperature": "22 °C",
+                        "wind": "12 km/h"
+                    }
+                },
+                {
+                    "day": "Sunday 10",
+                    "weather": {
+                        "humidity": "39 %",
+                        "pressure": "1012 mbar",
+                        "status": "Partly Cloudy",
+                        "temperature": "24 °C",
+                        "wind": "18 km/h"
+                    }
+                },
+                {
+                    "day": "Monday 11",
+                    "weather": {
+                        "humidity": "40 %",
+                        "pressure": "1004 mbar",
+                        "status": "Rain",
+                        "temperature": "22 °C",
+                        "wind": "17 km/h"
                     }
                 }
             ]
@@ -677,10 +684,15 @@ router.get('/weather/fivedays/:city/:prov/:language/units=:units/api-key=:key', 
     }
 
     if (units == 'imperial') {
-        json.cityHeight = '1000ft';
+        json.cityHeight = '2342ft';
         json.days.forEach( (day) => {
-            day.weather.temperature = '40 °F';
-            day.weather.wind = '12 mph';
+            let tempCelsius = parseInt(day.weather.temperature.split(' ')[0]);
+            let tempFahrenheit = Math.round(((tempCelsius * 9/5) + 32));
+            day.weather.temperature = `${tempFahrenheit} °F`;
+
+            let windMetric = parseInt(day.weather.wind.split(' ')[0]);
+            let windImperial = Math.round(windMetric / 1.609);
+            day.weather.wind = `${windImperial} mph`;
         });
     }
 
@@ -736,38 +748,40 @@ router.get('/weather/current/:city/:prov/:language/units=:units/api-key=:key', f
 
     let json = {};
 
-    if (units == 'metric') {
-        json = {
-            "cityHeight": "845m",
-            "cityName": "L'Aquila",
-            "cityProvince": "(AQ)",
-            "weather": {
-                "currentHumidity": "73 %",
-                "currentPressure": "1027 mbar",
-                "currentStatus": "Cielo Coperto",
-                "currentTemperature": "6 °C",
-                "currentWind": "11 km/h"
-            }
-        };
-    }
-
-    else if (units == 'imperial') {
-        json = {
-            "cityHeight": "1000ft",
-            "cityName": "L'Aquila",
-            "cityProvince": "(AQ)",
-            "weather": {
-                "currentHumidity": "73 %",
-                "currentPressure": "1027 mbar",
-                "currentStatus": "Cielo Coperto",
-                "currentTemperature": "43 °F",
-                "currentWind": "11 mph"
-            }
-        };
-    }
-
     if (language == 'EN') {
-        json.weather.currentStatus = 'Partly Cloudy';
+        json = {
+            "cityHeight": "714m",
+            "cityName": "L'Aquila",
+            "cityProvince": "(AQ)",
+            "weather": {
+                "currentHumidity": "82 %",
+                "currentPressure": "1016 mbar",
+                "currentStatus": "Cloudy",
+                "currentTemperature": "12 °C",
+                "currentWind": "16 km/h"
+            }
+        };
+    }
+
+    else if (language == 'IT') {
+        json = {
+            "cityHeight": "714m",
+            "cityName": "L'Aquila",
+            "cityProvince": "(AQ)",
+            "weather": {
+                "currentHumidity": "82 %",
+                "currentPressure": "1016 mbar",
+                "currentStatus": "Nuvoloso",
+                "currentTemperature": "12 °C",
+                "currentWind": "16 km/h"
+            }
+        };
+    }
+
+    if (language == 'imperial') {
+        json.weather.currentTemperature = '54 °F';
+        json.weather.currentWind = '10 mph';
+        json.cityHeight = '2342ft';
     }
 
     response.statusCode = 200;
