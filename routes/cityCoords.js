@@ -49,7 +49,6 @@ router.get('/city/:city/:prov/api-key=:key', function (req, resp) {
             resp.send(error);
         } else if (!err && res.statusCode == 200) { //if no error
             let coords = JSON.parse(body);
-            console.log(coords.coord);
 
             //check if coord is not null
             if (coords.coord != null) {
@@ -104,7 +103,6 @@ router.get('/getCity/:lat/:lon/api-key=:key', function (req, resp) {
             resp.send(error);
         } else if (!err && res.statusCode == 200) { //if no error
             let jsonResponse = JSON.parse(body);
-            console.log(jsonResponse);
 
             //check if coord is not null
             if (jsonResponse.items != null && jsonResponse.items.length > 0) {

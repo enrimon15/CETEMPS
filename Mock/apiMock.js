@@ -738,7 +738,7 @@ router.get('/coords/getCity/:lat/:lon/api-key=:key', function (request, response
 });
 
 
-// example: http://localhost:3000/mock/coords/getCity/42.3505500/13.3995400/api-key=keyApp
+// example: http://localhost:3000/mock/weather/current/L'Aquila/AQ/units=metric/api-key=keyApp
 router.get('/weather/current/:city/:prov/:language/units=:units/api-key=:key', function (request, response) {
 
     if (!utilities.checkAuth(request.params.key, response)) return;
@@ -778,10 +778,160 @@ router.get('/weather/current/:city/:prov/:language/units=:units/api-key=:key', f
         };
     }
 
-    if (language == 'imperial') {
+    if (units == 'imperial') {
         json.weather.currentTemperature = '54 °F';
         json.weather.currentWind = '10 mph';
         json.cityHeight = '2342ft';
+    }
+
+    response.statusCode = 200;
+    response.send(json);
+
+
+});
+
+// example: http://localhost:3000/mock/weather/chart/L'Aquila/AQ/units=metric/api-key=keyApp
+router.get('/weather/chart/:city/:prov/:language/units=:units/api-key=:key', function (request, response) {
+
+    if (!utilities.checkAuth(request.params.key, response)) return;
+
+    let units = request.params.units;
+    let language = request.params.language;
+
+    let json = {
+        "cityName": "L'Aquila",
+        "cityProvince": "(AQ)",
+        "hours": [
+            {
+                "day": "07",
+                "hour": "12:00",
+                "temperature": "14 °C"
+            },
+            {
+                "day": "07",
+                "hour": "13:00",
+                "temperature": "15 °C"
+            },
+            {
+                "day": "07",
+                "hour": "14:00",
+                "temperature": "16 °C"
+            },
+            {
+                "day": "07",
+                "hour": "15:00",
+                "temperature": "16 °C"
+            },
+            {
+                "day": "07",
+                "hour": "16:00",
+                "temperature": "16 °C"
+            },
+            {
+                "day": "07",
+                "hour": "17:00",
+                "temperature": "16 °C"
+            },
+            {
+                "day": "07",
+                "hour": "18:00",
+                "temperature": "16 °C"
+            },
+            {
+                "day": "07",
+                "hour": "19:00",
+                "temperature": "15 °C"
+            },
+            {
+                "day": "07",
+                "hour": "20:00",
+                "temperature": "13 °C"
+            },
+            {
+                "day": "07",
+                "hour": "21:00",
+                "temperature": "11 °C"
+            },
+            {
+                "day": "07",
+                "hour": "22:00",
+                "temperature": "10 °C"
+            },
+            {
+                "day": "07",
+                "hour": "23:00",
+                "temperature": "9 °C"
+            },
+            {
+                "day": "08",
+                "hour": "00:00",
+                "temperature": "8 °C"
+            },
+            {
+                "day": "08",
+                "hour": "01:00",
+                "temperature": "7 °C"
+            },
+            {
+                "day": "08",
+                "hour": "02:00",
+                "temperature": "6 °C"
+            },
+            {
+                "day": "08",
+                "hour": "03:00",
+                "temperature": "6 °C"
+            },
+            {
+                "day": "08",
+                "hour": "04:00",
+                "temperature": "5 °C"
+            },
+            {
+                "day": "08",
+                "hour": "05:00",
+                "temperature": "5 °C"
+            },
+            {
+                "day": "08",
+                "hour": "06:00",
+                "temperature": "5 °C"
+            },
+            {
+                "day": "08",
+                "hour": "07:00",
+                "temperature": "6 °C"
+            },
+            {
+                "day": "08",
+                "hour": "08:00",
+                "temperature": "11 °C"
+            },
+            {
+                "day": "08",
+                "hour": "09:00",
+                "temperature": "14 °C"
+            },
+            {
+                "day": "08",
+                "hour": "10:00",
+                "temperature": "16 °C"
+            },
+            {
+                "day": "08",
+                "hour": "11:00",
+                "temperature": "18 °C"
+            }
+        ]
+    };
+
+
+    if (units == 'imperial') {
+        json.hours.forEach( (hour) => {
+            let tempCelsius = parseInt(hour.temperature.split(' ')[0]);
+            let tempFahrenheit = Math.round(((tempCelsius * 9/5) + 32));
+            hour.temperature = `${tempFahrenheit} °F`;
+        });
     }
 
     response.statusCode = 200;
