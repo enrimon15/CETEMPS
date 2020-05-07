@@ -12,9 +12,9 @@ module.exports = router;
 // endpoint configuration
 // example: http://localhost:3000/weather/today/torrebruna/ch/IT/units=imperial/api-key=keyApp
 router.get('/:city/:prov/:language/units=:units/api-key=:key', function (request, response) {
-
+    console.log('enter today');
     if (!utilities.checkAuth(request.params.key, response)) return;
-
+    console.log('auth success');
     //normalize params (cetemps need to read city with fist letter capitalized and province to upper case)
     let param1 = request.params.city;
     let cty = param1.charAt(0).toUpperCase() + param1.substring(1);
@@ -35,12 +35,13 @@ router.get('/:city/:prov/:language/units=:units/api-key=:key', function (request
         .goto(URL) //web site to visit
         .wait('tr') //what have to wait to start execution
         .evaluate(function(lang, units, conditionIT, conditionEN) { //execution --> I take the data I need through the HTML tags and classes
-
+            console.log('enter nightmare');
             let res = {}; //json result
             let daily = []; //array with every hours of day
 
             //city
             let city = document.querySelector('tr > td[align="center"][bgcolor="#0a51a1"][colspan="6"] > font[color="#FFFFFF"] > div[align="left"]'); //city name
+            console.log('city: ' + city);
             //check if the city is valid
             if (city != null) {
                 let strPlit = city.innerText.split(" ");
