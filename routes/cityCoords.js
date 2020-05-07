@@ -72,7 +72,7 @@ router.get('/city/:city/:prov/api-key=:key', function (req, resp) {
 // endpoint configuration
 // example: http://localhost:3000/coords/getCity/42.3505500/13.3995400/api-key=keyApp
 // get city by coords
-router.get('/getCity/:lat/:lon', function (req, resp) {
+router.get('/getCity/:lat/:lon/api-key=:key', function (req, resp) {
 
     if (!utilities.checkAuth(req.params.key, resp)) return;
 
