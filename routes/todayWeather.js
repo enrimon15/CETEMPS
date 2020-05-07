@@ -218,6 +218,21 @@ router.get('/chart/:city/:prov/:language/units=:units/api-key=:key', function (r
                         hours.temperature = `${tempFahrenheit} °F`;
                     }
 
+                    //convert gif of cetemps in string status
+                    let img = result.children[5].querySelector('img').src;
+                    let imgSplit = img.split('icons/');
+
+                    switch(lang) {
+                        case 'IT':
+                            hours.status = conditionIT[imgSplit[1]]; //status_it.get(imgSplit[1]);
+                            break;
+                        case 'EN':
+                            hours.status = conditionEN[imgSplit[1]]; //status_en.get(imgSplit[1]);
+                            break;
+                        default:
+                            hours.status = conditionIT[imgSplit[1]]; //status_it.get(imgSplit[1]);
+                    }
+
                     daily.push(hours);
                 } else {
                     return;

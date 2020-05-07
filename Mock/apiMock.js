@@ -804,123 +804,159 @@ router.get('/weather/chart/:city/:prov/:language/units=:units/api-key=:key', fun
         "hours": [
             {
                 "day": "07",
-                "hour": "12:00",
-                "temperature": "14 °C"
-            },
-            {
-                "day": "07",
-                "hour": "13:00",
-                "temperature": "15 °C"
-            },
-            {
-                "day": "07",
-                "hour": "14:00",
-                "temperature": "16 °C"
-            },
-            {
-                "day": "07",
                 "hour": "15:00",
+                "status": "Soleggiato",
                 "temperature": "16 °C"
             },
             {
                 "day": "07",
                 "hour": "16:00",
+                "status": "Soleggiato",
                 "temperature": "16 °C"
             },
             {
                 "day": "07",
                 "hour": "17:00",
+                "status": "Soleggiato",
                 "temperature": "16 °C"
             },
             {
                 "day": "07",
                 "hour": "18:00",
+                "status": "Soleggiato",
                 "temperature": "16 °C"
             },
             {
                 "day": "07",
                 "hour": "19:00",
+                "status": "Soleggiato",
                 "temperature": "15 °C"
             },
             {
                 "day": "07",
                 "hour": "20:00",
+                "status": "Soleggiato",
                 "temperature": "13 °C"
             },
             {
                 "day": "07",
                 "hour": "21:00",
+                "status": "Sereno",
                 "temperature": "11 °C"
             },
             {
                 "day": "07",
                 "hour": "22:00",
+                "status": "Sereno",
                 "temperature": "10 °C"
             },
             {
                 "day": "07",
                 "hour": "23:00",
+                "status": "Sereno",
                 "temperature": "9 °C"
             },
             {
                 "day": "08",
                 "hour": "00:00",
+                "status": "Sereno",
                 "temperature": "8 °C"
             },
             {
                 "day": "08",
                 "hour": "01:00",
+                "status": "Sereno",
                 "temperature": "7 °C"
             },
             {
                 "day": "08",
                 "hour": "02:00",
+                "status": "Sereno",
                 "temperature": "6 °C"
             },
             {
                 "day": "08",
                 "hour": "03:00",
+                "status": "Sereno",
                 "temperature": "6 °C"
             },
             {
                 "day": "08",
                 "hour": "04:00",
+                "status": "Sereno",
                 "temperature": "5 °C"
             },
             {
                 "day": "08",
                 "hour": "05:00",
+                "status": "Soleggiato",
                 "temperature": "5 °C"
             },
             {
                 "day": "08",
                 "hour": "06:00",
+                "status": "Soleggiato",
                 "temperature": "5 °C"
             },
             {
                 "day": "08",
                 "hour": "07:00",
+                "status": "Soleggiato",
                 "temperature": "6 °C"
             },
             {
                 "day": "08",
                 "hour": "08:00",
+                "status": "Soleggiato",
                 "temperature": "11 °C"
             },
             {
                 "day": "08",
                 "hour": "09:00",
+                "status": "Soleggiato",
                 "temperature": "14 °C"
             },
             {
                 "day": "08",
                 "hour": "10:00",
+                "status": "Soleggiato",
                 "temperature": "16 °C"
             },
             {
                 "day": "08",
                 "hour": "11:00",
+                "status": "Soleggiato",
                 "temperature": "18 °C"
+            },
+            {
+                "day": "08",
+                "hour": "12:00",
+                "status": "Soleggiato",
+                "temperature": "19 °C"
+            },
+            {
+                "day": "08",
+                "hour": "13:00",
+                "status": "Soleggiato",
+                "temperature": "20 °C"
+            },
+            {
+                "day": "08",
+                "hour": "14:00",
+                "status": "Soleggiato",
+                "temperature": "21 °C"
+            },
+            {
+                "day": "08",
+                "hour": "15:00",
+                "status": "Soleggiato",
+                "temperature": "21 °C"
+            },
+            {
+                "day": "08",
+                "hour": "16:00",
+                "status": "Soleggiato",
+                "temperature": "21 °C"
             }
         ]
     };
