@@ -648,7 +648,7 @@ router.get('/weather/fivedays/:city/:prov/:language/units=:units/api-key=:key', 
             "cityProvince": "(AQ)",
             "days": [
                 {
-                    "day": "Giovedì 7",
+                    "day": "Venerdì 8",
                     "weather": {
                         "humidity": "38 %",
                         "pressure": "1022 mbar",
@@ -658,7 +658,7 @@ router.get('/weather/fivedays/:city/:prov/:language/units=:units/api-key=:key', 
                     }
                 },
                 {
-                    "day": "Venerdì 8",
+                    "day": "Sabato 9",
                     "weather": {
                         "humidity": "30 %",
                         "pressure": "1021 mbar",
@@ -668,7 +668,7 @@ router.get('/weather/fivedays/:city/:prov/:language/units=:units/api-key=:key', 
                     }
                 },
                 {
-                    "day": "Sabato 9",
+                    "day": "Domenica 10",
                     "weather": {
                         "humidity": "23 %",
                         "pressure": "1016 mbar",
@@ -678,7 +678,7 @@ router.get('/weather/fivedays/:city/:prov/:language/units=:units/api-key=:key', 
                     }
                 },
                 {
-                    "day": "Domenica 10",
+                    "day": "Lunedì 11",
                     "weather": {
                         "humidity": "39 %",
                         "pressure": "1012 mbar",
@@ -688,7 +688,7 @@ router.get('/weather/fivedays/:city/:prov/:language/units=:units/api-key=:key', 
                     }
                 },
                 {
-                    "day": "Lunedì 11",
+                    "day": "Martedì 12",
                     "weather": {
                         "humidity": "40 %",
                         "pressure": "1004 mbar",
@@ -708,7 +708,7 @@ router.get('/weather/fivedays/:city/:prov/:language/units=:units/api-key=:key', 
             "cityProvince": "(AQ)",
             "days": [
                 {
-                    "day": "Thursday 7",
+                    "day": "Friday 8",
                     "weather": {
                         "humidity": "38 %",
                         "pressure": "1022 mbar",
@@ -718,7 +718,7 @@ router.get('/weather/fivedays/:city/:prov/:language/units=:units/api-key=:key', 
                     }
                 },
                 {
-                    "day": "Friday 8",
+                    "day": "Saturday 9",
                     "weather": {
                         "humidity": "30 %",
                         "pressure": "1021 mbar",
@@ -728,7 +728,7 @@ router.get('/weather/fivedays/:city/:prov/:language/units=:units/api-key=:key', 
                     }
                 },
                 {
-                    "day": "Saturday 9",
+                    "day": "Sunday 10",
                     "weather": {
                         "humidity": "23 %",
                         "pressure": "1016 mbar",
@@ -738,7 +738,7 @@ router.get('/weather/fivedays/:city/:prov/:language/units=:units/api-key=:key', 
                     }
                 },
                 {
-                    "day": "Sunday 10",
+                    "day": "Monday 11",
                     "weather": {
                         "humidity": "39 %",
                         "pressure": "1012 mbar",
@@ -748,7 +748,7 @@ router.get('/weather/fivedays/:city/:prov/:language/units=:units/api-key=:key', 
                     }
                 },
                 {
-                    "day": "Monday 11",
+                    "day": "Tuesday 12",
                     "weather": {
                         "humidity": "40 %",
                         "pressure": "1004 mbar",
