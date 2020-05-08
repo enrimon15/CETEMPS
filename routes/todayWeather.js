@@ -364,6 +364,7 @@ router.get('/test', function (request, response) {
         })
         .end()
         .then(function(result) {
+            console.log('finish nightmare');
             response.statusCode = 200;
             response.send(result);
         })
