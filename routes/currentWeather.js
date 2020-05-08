@@ -11,6 +11,45 @@ module.exports = router;
 //get mapping
 //endpoint configuration
 // example: http://localhost:3000/weather/current/torrebruna/ch/EN/units=imperial/api-key=keyApp
+/**
+ * @swagger
+ * /weather/current/{city}/{prov}/{language}/units={units}/api-key={key}:
+ *   get:
+ *     tags:
+ *       - Current Weather
+ *     description: Returns Current Weather
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: city
+ *         description: City Name
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: prov
+ *         description: City Province
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: language
+ *         description: IT / EN
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: units
+ *         description: metric / imperial
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: key
+ *         description: Api Key
+ *         in: path
+ *         required: true
+ *         type: string
+ *     responses:
+ *      200:
+ *         description: OK
+ */
 router.get('/:city/:prov/:language/units=:units/api-key=:key', function (request, response) {
 
     if (!utilities.checkAuth(request.params.key, response)) return;

@@ -8,6 +8,45 @@ module.exports = router;
 
 
 // example: http://localhost:3000/mock/weather/today/torrebruna/ch/IT/metric/api-key=keyApp
+/**
+ * @swagger
+ * /mock/weather/today/{city}/{prov}/{language}/units={units}/api-key={key}:
+ *   get:
+ *     tags:
+ *       - Mock
+ *     description: Returns Mock Today Weather
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: city
+ *         description: City Name
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: prov
+ *         description: City Province
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: language
+ *         description: IT / EN
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: units
+ *         description: metric / imperial
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: key
+ *         description: Api Key
+ *         in: path
+ *         required: true
+ *         type: string
+ *     responses:
+ *      200:
+ *         description: OK
+ */
 router.get('/weather/today/:city/:prov/:language/units=:units/api-key=:key', function (request, response) {
 
     if (!utilities.checkAuth(request.params.key, response)) return;
@@ -553,6 +592,45 @@ router.get('/weather/today/:city/:prov/:language/units=:units/api-key=:key', fun
 
 
 // example: http://localhost:3000/mock/weather/fivedays/city/torrebruna/ch/api-key=keyApp
+/**
+ * @swagger
+ * /mock/weather/fivedays/{city}/{prov}/{language}/units={units}/api-key={key}:
+ *   get:
+ *     tags:
+ *       - Mock
+ *     description: Returns Mock Next 5 Days Weather
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: city
+ *         description: City Name
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: prov
+ *         description: City Province
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: language
+ *         description: IT / EN
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: units
+ *         description: metric / imperial
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: key
+ *         description: Api Key
+ *         in: path
+ *         required: true
+ *         type: string
+ *     responses:
+ *      200:
+ *         description: OK
+ */
 router.get('/weather/fivedays/:city/:prov/:language/units=:units/api-key=:key', function (request, response) {
 
     if (!utilities.checkAuth(request.params.key, response)) return;
@@ -706,6 +784,35 @@ router.get('/weather/fivedays/:city/:prov/:language/units=:units/api-key=:key', 
 
 
 // example: http://localhost:3000/mock/coords/city/torrebruna/ch/api-key=keyApp
+/**
+ * @swagger
+ * /mock/coords/city/{city}/{prov}/api-key={key}:
+ *   get:
+ *     tags:
+ *       - Mock
+ *     description: Returns coordinates (lat,lon) of given city
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: city
+ *         description: City Name
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: prov
+ *         description: City Province
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: key
+ *         description: Api Key
+ *         in: path
+ *         required: true
+ *         type: string
+ *     responses:
+ *       200:
+ *          description: OK
+ */
 router.get('/coords/city/:city/:prov/api-key=:key', function (request, response) {
 
     if (!utilities.checkAuth(request.params.key, response)) return;
@@ -723,6 +830,35 @@ router.get('/coords/city/:city/:prov/api-key=:key', function (request, response)
 
 
 // example: http://localhost:3000/mock/coords/getCity/42.3505500/13.3995400/api-key=keyApp
+/**
+ * @swagger
+ * /mock/coords/getCity/{lat}/{lon}/api-key={key}:
+ *   get:
+ *     tags:
+ *       - Mock
+ *     description: Returns city name by given coordinates (lat,lon)
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: lat
+ *         description: Latitude
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: lon
+ *         description: Longitude
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: key
+ *         description: Api Key
+ *         in: path
+ *         required: true
+ *         type: string
+ *     responses:
+ *      200:
+ *         description: OK
+ */
 router.get('/coords/getCity/:lat/:lon/api-key=:key', function (request, response) {
 
     if (!utilities.checkAuth(request.params.key, response)) return;
@@ -739,6 +875,45 @@ router.get('/coords/getCity/:lat/:lon/api-key=:key', function (request, response
 
 
 // example: http://localhost:3000/mock/weather/current/L'Aquila/AQ/units=metric/api-key=keyApp
+/**
+ * @swagger
+ * /mock/weather/current/{city}/{prov}/{language}/units={units}/api-key={key}:
+ *   get:
+ *     tags:
+ *       - Mock
+ *     description: Returns Mock Current Weather
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: city
+ *         description: City Name
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: prov
+ *         description: City Province
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: language
+ *         description: IT / EN
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: units
+ *         description: metric / imperial
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: key
+ *         description: Api Key
+ *         in: path
+ *         required: true
+ *         type: string
+ *     responses:
+ *      200:
+ *         description: OK
+ */
 router.get('/weather/current/:city/:prov/:language/units=:units/api-key=:key', function (request, response) {
 
     if (!utilities.checkAuth(request.params.key, response)) return;
@@ -791,6 +966,45 @@ router.get('/weather/current/:city/:prov/:language/units=:units/api-key=:key', f
 });
 
 // example: http://localhost:3000/mock/weather/chart/L'Aquila/AQ/units=metric/api-key=keyApp
+/**
+ * @swagger
+ * /mock/weather/chart/{city}/{prov}/{language}/units={units}/api-key={key}:
+ *   get:
+ *     tags:
+ *       - Mock
+ *     description: Returns Mock Today Weather for Charts
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: city
+ *         description: City Name
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: prov
+ *         description: City Province
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: language
+ *         description: IT / EN
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: units
+ *         description: metric / imperial
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: key
+ *         description: Api Key
+ *         in: path
+ *         required: true
+ *         type: string
+ *     responses:
+ *      200:
+ *         description: OK
+ */
 router.get('/weather/chart/:city/:prov/:language/units=:units/api-key=:key', function (request, response) {
 
     if (!utilities.checkAuth(request.params.key, response)) return;

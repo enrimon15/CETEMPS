@@ -11,10 +11,47 @@ module.exports = router;
 // get mapping
 // endpoint configuration
 // example: http://localhost:3000/weather/today/torrebruna/ch/IT/units=imperial/api-key=keyApp
+/**
+ * @swagger
+ * /weather/today/{city}/{prov}/{language}/units={units}/api-key={key}:
+ *   get:
+ *     tags:
+ *       - Today Weather
+ *     description: Returns Today Weather (Hourly)
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: city
+ *         description: City Name
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: prov
+ *         description: City Province
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: language
+ *         description: IT / EN
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: units
+ *         description: metric / imperial
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: key
+ *         description: Api Key
+ *         in: path
+ *         required: true
+ *         type: string
+ *     responses:
+ *      200:
+ *         description: OK
+ */
 router.get('/:city/:prov/:language/units=:units/api-key=:key', function (request, response) {
-    console.log('enter today');
     if (!utilities.checkAuth(request.params.key, response)) return;
-    console.log('auth success');
     //normalize params (cetemps need to read city with fist letter capitalized and province to upper case)
     let param1 = request.params.city;
     let cty = param1.charAt(0).toUpperCase() + param1.substring(1);
@@ -35,7 +72,6 @@ router.get('/:city/:prov/:language/units=:units/api-key=:key', function (request
         .goto(URL) //web site to visit
         .wait('tr') //what have to wait to start execution
         .evaluate(function(lang, units, conditionIT, conditionEN) { //execution --> I take the data I need through the HTML tags and classes
-            console.log('enter nightmare');
             let res = {}; //json result
             let daily = []; //array with every hours of day
 
@@ -146,6 +182,45 @@ router.get('/:city/:prov/:language/units=:units/api-key=:key', function (request
 
 
 // example: http://localhost:3000/weather/today/chart/torrebruna/ch/IT/units=imperial/api-key=keyApp
+/**
+ * @swagger
+ * /weather/today/chart/{city}/{prov}/{language}/units={units}/api-key={key}:
+ *   get:
+ *     tags:
+ *       - Today Weather
+ *     description: Returns Today Weather (Hourly) for charts
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: city
+ *         description: City Name
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: prov
+ *         description: City Province
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: language
+ *         description: IT / EN
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: units
+ *         description: metric / imperial
+ *         in: path
+ *         required: true
+ *         type: string
+ *       - name: key
+ *         description: Api Key
+ *         in: path
+ *         required: true
+ *         type: string
+ *     responses:
+ *      200:
+ *         description: OK
+ */
 router.get('/chart/:city/:prov/:language/units=:units/api-key=:key', function (request, response) {
 
     if (!utilities.checkAuth(request.params.key, response)) return;
@@ -250,6 +325,50 @@ router.get('/chart/:city/:prov/:language/units=:units/api-key=:key', function (r
         })
         .catch(error => { //error handler
             console.error('Search failed:', error);
+            response.statusCode = 404;
+            response.send(utilities.buildError());
+        });
+
+
+});
+
+
+router.get('/test', function (request, response) {
+
+    console.log('enter');
+
+    //nightmare declaration (web scraper)
+    const Nightmare = require('nightmare');
+    const nightmare = Nightmare({show: false}); //if show:true i can see the operation of the bot
+
+    console.log('before nightmare');
+
+    nightmare
+        .goto('https://www.linode.com/docs')
+        .insert('.ais-SearchBox-input', 'ubuntu')
+        .click('.ais-SearchBox-submit')
+        .wait('.ais-Hits-list')
+        .evaluate(function() {
+            console.log('enter nightmare');
+            let searchResults = [];
+
+            const results =  document.querySelectorAll('a.c-search__result__link');
+            results.forEach(function(result) {
+                let row = {
+                    'title':result.innerText,
+                    'url':result.href
+                }
+                searchResults.push(row);
+            });
+            return searchResults;
+        })
+        .end()
+        .then(function(result) {
+            response.statusCode = 200;
+            response.send(result);
+        })
+        .catch(function(e)  {
+            console.error('Search failed:', e);
             response.statusCode = 404;
             response.send(utilities.buildError());
         });
