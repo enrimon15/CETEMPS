@@ -54,7 +54,6 @@ const port = process.env.PORT || 3000;
 app.use(express.static('public'));
 
 app.get('/', function(req, res, next) {
-    //res.status(200).send("CETEMPS APP Server works!")
     res.status(200).send(__dirname + '/index.html');
 });
 
