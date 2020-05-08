@@ -360,6 +360,7 @@ router.get('/test', function (request, response) {
                 }
                 searchResults.push(row);
             });
+            console.log('finish');
             return searchResults;
         })
         .end()
