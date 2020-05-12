@@ -1,0 +1,23 @@
+stack change --> heroku stack:set cedar-14 (it works until 02/11/2020, because it is deprecated) --- heroku stack:set heroku-18 (new stack, it doesn't work with Nightmare)
+
+to install buildpacks:
+heroku buildpacks:add --index 1 https://github.com/heroku/heroku-buildpack-apt &&
+heroku buildpacks:add --index 2 https://github.com/captain401/heroku-buildpack-xvfb.git &&
+heroku buildpacks:add --index 4 https://github.com/heroku/heroku-buildpack-nodejs.git (this may be just installed automatically by heroku)
+
+to remove buildpacks:
+heroku buildpacks:remove name
+
+---------------
+
+npm i xvfb
+
+const Xvfb = require('xvfb');
+let xvfb = new Xvfb();
+
+try {
+  xvfb.startSync();
+}
+catch (e) {
+  console.log('Failed to run xvfb', e);
+}

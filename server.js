@@ -5,6 +5,16 @@ var express = require('express');
 var cors = require('cors');
 var app = express();
 
+// Virtual display server (If the server machine doesn't have xvfb installed the app also starts)
+const Xvfb = require('xvfb');
+let xvfb = new Xvfb();
+try {
+    xvfb.startSync();
+}
+catch (e) {
+    console.log('Failed to run xvfb', e);
+}
+
 app.use(cors());
 
 const swaggerUi = require('swagger-ui-express');
