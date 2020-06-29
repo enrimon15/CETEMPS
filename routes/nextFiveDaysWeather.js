@@ -172,40 +172,55 @@ router.get('/:city/:prov/:language/units=:units/api-key=:key', function (request
                     dayRow = dayRow.substring(1);
                 }
 
+                let nextDate1 = new Date();
+                let nextDate2 = new Date();
+                let nextDate3 = new Date();
+                let nextDate4 = new Date();
+                let nextDate5 = new Date();
+
+                nextDate1.setDate(currentDate.getDate() + 1);
+                nextDate2.setDate(currentDate.getDate() + 2);
+                nextDate3.setDate(currentDate.getDate() + 3);
+                nextDate4.setDate(currentDate.getDate() + 4);
+                nextDate5.setDate(currentDate.getDate() + 5);
+
+
                 //check next five days (it takes the weather of every days at 14:00)
-                if ((dayRow == (currentDay + 1)) && (hourRow == 14)) {
+                if ((dayRow == nextDate1.getDate()) && (hourRow == 14)) {
                     getDays(dayWeekRow, dayRow, result).then(
                         val => days.push(val)
                     );
                 }
 
-                else if ((dayRow == (currentDay + 2)) && (hourRow == 14)) {
+                else if ((dayRow == nextDate2.getDate()) && (hourRow == 14)) {
                     getDays(dayWeekRow, dayRow, result).then(
                         val => days.push(val)
                     );
                 }
 
-                else if ((dayRow == (currentDay + 3)) && (hourRow == 14)) {
+                else if ((dayRow == nextDate3.getDate()) && (hourRow == 14)) {
                     getDays(dayWeekRow, dayRow, result).then(
                         val => days.push(val)
                     );
                 }
 
-                else if ((dayRow == (currentDay + 4)) && (hourRow == 14)) {
+                else if ((dayRow == nextDate4.getDate()) && (hourRow == 14)) {
                     getDays(dayWeekRow, dayRow, result).then(
                         val => days.push(val)
                     );
                 }
 
-                else if ((dayRow == (currentDay + 5)) && (hourRow == 14)) {
+                else if ((dayRow == nextDate5.getDate()) && (hourRow == 14)) {
                     getDays(dayWeekRow, dayRow, result).then(
                         val => days.push(val)
                     );
                 }
 
-                else if (dayRow > (currentDay + 5)) {
+                else return;
+
+                /*else if (dayRow > (currentDay + 5)) {
                     return;
-                }
+                }*/
             });
 
             res.days = days;
