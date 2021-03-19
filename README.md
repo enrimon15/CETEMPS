@@ -5,7 +5,7 @@ Weather API from CETEMPS made with Node.js + Express
 Dato che il [CETEMPS](http://cetemps.aquila.infn.it/) non offre alcun tipo di API, è stato realizzato un back-end server con lo scopo di creare servizi REST con i quali interagire e ricevere i relativi dati.
 #### Nightmare.js
 Per essere in grado di estrapolare dati meteorologici dalle stazioni meteo del CETEMPS è stata utilizzata una particolare libreria per Node: Nightmare.js.\
-Essa è una libreria progettata per automatizzare le attività di navigazione attraverso siti web che non dispongono di API. In altre parole Nightmare funge da web scraper. Questo rende possibile navigare virtualmente il DOM del sito web CETEMPS, trovare i dati necessari tramite tag e classi, lavorarli e, infine, mandarli in risposta al chiamante del servizio (in formato json).\
+Essa è una libreria progettata per automatizzare le attività di navigazione attraverso siti web che non dispongono di API. In altre parole Nightmare funge da web scraper. Questo rende possibile navigare virtualmente il DOM del sito web CETEMPS, trovare i dati necessari tramite tag e classi, lavorarli e, infine, mandarli in risposta al chiamante del servizio (in formato json).
 
 Sono stati creati cinque servizi principali con i rispettivi endpoints:
 - /weather/today/città/provincia/lingua/units=unità/api-key=key:\
